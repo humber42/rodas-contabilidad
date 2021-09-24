@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/rodas-contabilidad</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <mapping class="cu.hash.rodascontabilidad.models.ActividadEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.CargoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.CategoriaAgrupacionEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.CategoriaAgrupacionElementoGastoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.CategoriaAgrupacionIndirectaEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.CategoriaAgrupacionIndirectaElementoGastoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.CategoriaAgrupacionIndirectaSubelementoGastoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.ClienteEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.CoeficienteEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.CoeficienteGastosBancariosEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.CoeficienteGastosDistribucionVentasEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.CoeficienteGastosGeneralesAdmonEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.CoeficienteGastosIndirectosProduccionEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.ConfiguracionEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.ElementoGastoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.EtapaEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.FichaCostoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.GastoDirectoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.GastoIndirectoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.GastosActividadEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.MaterialEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.NormaConsumoFichaCostoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.NormasConsumoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.OrdenFacturacionEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.OrdenTrabajoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.PersonasAutorizadasEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.PlanProduccionEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.ReporteDiarioLaboralEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.SubelementoGastoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.TipoActividadEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.TipoGastoDirectoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.TipoGastoIndirectoEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.TrabajadorEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.UebEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.UebActiviadesPlanProduccionEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.UebEtapaEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.UnidadMedidaEntity"/>
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
