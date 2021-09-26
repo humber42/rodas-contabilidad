@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CargoRepository extends JpaRepository<CargoEntity, Long> {
+    CargoEntity findByNombre(String nombre);
+    CargoEntity findByIdAndNombre(Long id, String nombre);
 }

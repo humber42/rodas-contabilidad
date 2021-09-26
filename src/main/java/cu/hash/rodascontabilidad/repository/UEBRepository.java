@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UEBRepository extends JpaRepository<UebEntity, Long> {
+    UebEntity findByCodigoUeb(String codigo);
+    UebEntity findByIdAndNombreUeb(Long id, String nombre);
 }

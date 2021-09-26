@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UnidadMedidaRepository extends JpaRepository<UnidadMedidaEntity, Long> {
+    UnidadMedidaEntity findByIdAndNombre(Long id, String nombre);
+    UnidadMedidaEntity findByCodigoUnidadMedida(String codigo);
 }

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OrdenFacturacionRepository extends JpaRepository<OrdenFacturacionEntity, Long> {
+    OrdenFacturacionEntity findByIdAndCodigo(Long id, String codigo);
+    OrdenFacturacionEntity findByCodigo(String codigo);
 }
