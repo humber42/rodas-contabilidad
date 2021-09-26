@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CategoriaAgrupacionRepository extends JpaRepository<CategoriaAgrupacionEntity, Long> {
+    CategoriaAgrupacionEntity findByNombre(String nombre);
+    CategoriaAgrupacionEntity findByIdAndNombre(Long id, String nombre);
 }

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ElementoGastoRepository extends JpaRepository<ElementoGastoEntity, Long> {
+    ElementoGastoEntity findByCodigoElemento(String codigo);
 }

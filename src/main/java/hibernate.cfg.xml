@@ -40,7 +40,7 @@
         <mapping class="cu.hash.rodascontabilidad.models.TipoGastoIndirectoEntity"/>
         <mapping class="cu.hash.rodascontabilidad.models.TrabajadorEntity"/>
         <mapping class="cu.hash.rodascontabilidad.models.UebEntity"/>
-        <mapping class="cu.hash.rodascontabilidad.models.UebActiviadesPlanProduccionEntity"/>
+        <mapping class="cu.hash.rodascontabilidad.models.UebActividadesPlanProduccionEntity"/>
         <mapping class="cu.hash.rodascontabilidad.models.UebEtapaEntity"/>
         <mapping class="cu.hash.rodascontabilidad.models.UnidadMedidaEntity"/>
         <!-- <property name="connection.username"/> -->

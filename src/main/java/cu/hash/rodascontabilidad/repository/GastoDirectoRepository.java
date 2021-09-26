@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GastoDirectoRepository extends JpaRepository<GastoDirectoEntity, Long> {
+    GastoDirectoEntity findByNombre(String nombre);
+    GastoDirectoEntity findByCodigoAndNombre(String codigo, String nombre);
+    GastoDirectoEntity findByIdAndCodigo(Long id, String codigo);
 }

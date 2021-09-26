@@ -37,7 +37,7 @@
         <class>cu.hash.rodascontabilidad.models.TipoGastoIndirectoEntity</class>
         <class>cu.hash.rodascontabilidad.models.TrabajadorEntity</class>
         <class>cu.hash.rodascontabilidad.models.UebEntity</class>
-        <class>cu.hash.rodascontabilidad.models.UebActiviadesPlanProduccionEntity</class>
+        <class>cu.hash.rodascontabilidad.models.UebActividadesPlanProduccionEntity</class>
         <class>cu.hash.rodascontabilidad.models.UebEtapaEntity</class>
         <class>cu.hash.rodascontabilidad.models.UnidadMedidaEntity</class>
         <properties>

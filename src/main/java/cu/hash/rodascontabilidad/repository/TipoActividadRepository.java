@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TipoActividadRepository extends JpaRepository<TipoActividadEntity, Long> {
+    TipoActividadEntity findByIdAndCodigo(Long id, String codigo);
+    TipoActividadEntity findByIdAndNombre(Long id, String nombre);
 }

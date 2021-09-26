@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EtapaRepository extends JpaRepository<EtapaEntity, Long> {
+    EtapaEntity findByNombre(String nombre);
+    EtapaEntity findByIdAndNombre(Long id, String nombre);
 }
