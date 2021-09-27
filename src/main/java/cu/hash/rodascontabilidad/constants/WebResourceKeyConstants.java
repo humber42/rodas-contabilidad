@@ -43,6 +43,7 @@ public class WebResourceKeyConstants {
     public static final String UNIDAD_MEDIDA_API = "/unidad-medida";
     public static final String USER_API = "/user";
 
+
     public interface Endpoints{
         String GET_ALL = "/all";
         String GET_BY_ID = "/id";

@@ -13,4 +13,5 @@ public class PersonasAutorizadasDto {
     private long idCargo;
 
     private UserDto usuario;
+    private CargoDto cargoDto;
 }

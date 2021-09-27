@@ -14,4 +14,6 @@ public class UebActividadesPlanProduccionDto {
 
     private PlanProduccionDto planProduccion;
     private ActividadDto actividad;
+
+
 }

@@ -2,6 +2,8 @@ package cu.hash.rodascontabilidad.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,4 +14,6 @@ public class EtapaDto {
     private String nombre;
     private String descripcion;
     private Long orden;
+
+    private List<UebDto> uebList;
 }
