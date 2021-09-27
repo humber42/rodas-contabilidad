@@ -27,7 +27,7 @@ public class SubelementoGastoController {
     }
 
     @GetMapping("/codigo/{codigo}")
-    public ResponseEntity<?> findSubelementoByIdTrabajador(@PathVariable String codigo){
+    public ResponseEntity<?> findSubelementoByCodigo(@PathVariable String codigo){
         return new ResponseEntity<>(service.findByCodigoSubelemento(codigo), HttpStatus.OK);
     }
 
