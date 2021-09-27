@@ -48,8 +48,8 @@ public class GastoIndirectoController {
         return new ResponseEntity<>(service.updateOrDeleteGI(gasto), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteGastoIndirecto(@RequestBody GastoIndirectoEntity gasto){
-        return new ResponseEntity<>(service.updateOrDeleteGI(gasto), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

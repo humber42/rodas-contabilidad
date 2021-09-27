@@ -48,8 +48,8 @@ public class EtapaController {
         return new ResponseEntity<>(service.updateOrDeleteEtapa(etapa), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteEtapa(@RequestBody EtapaEntity etapa){
-        return new ResponseEntity<>(service.updateOrDeleteEtapa(etapa), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

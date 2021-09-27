@@ -36,8 +36,8 @@ public class FichaCostoController {
         return new ResponseEntity<>(service.updateOrDeleteFichaCosto(fichaCosto), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteFichaCosto(@RequestBody FichaCostoEntity fichaCosto){
-        return new ResponseEntity<>(service.updateOrDeleteFichaCosto(fichaCosto), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

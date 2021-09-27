@@ -48,8 +48,8 @@ public class CargoController {
         return new ResponseEntity<>(service.updateOrDeleteCargo(cargoEntity), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteCargo(@RequestBody CargoEntity cargoEntity){
-        return new ResponseEntity<>(service.updateOrDeleteCargo(cargoEntity), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

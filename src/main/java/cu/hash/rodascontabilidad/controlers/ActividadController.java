@@ -1,7 +1,6 @@
 package cu.hash.rodascontabilidad.controlers;
 
 import cu.hash.rodascontabilidad.constants.WebResourceKeyConstants;
-import cu.hash.rodascontabilidad.dto.ActividadDto;
 import cu.hash.rodascontabilidad.models.ActividadEntity;
 import cu.hash.rodascontabilidad.services.ActividadService;
 import io.swagger.annotations.Api;
@@ -49,8 +48,8 @@ public class ActividadController {
         return new ResponseEntity<>(service.updateOrDeleteActividad(actividad), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteActividad(@RequestBody ActividadEntity actividad){
-        return new ResponseEntity<>(service.updateOrDeleteActividad(actividad), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

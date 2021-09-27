@@ -38,9 +38,8 @@ public class CategoriaAgrupacionElementoGastoController {
         return new ResponseEntity<>(service.updateOrDeleteCategoriaAgrupacionElementoGasto(categoria), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteCategoriaAgrupacionElementoGasto(
-            @RequestBody CategoriaAgrupacionElementoGastoEntity categoria){
-        return new ResponseEntity<>(service.updateOrDeleteCategoriaAgrupacionElementoGasto(categoria), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

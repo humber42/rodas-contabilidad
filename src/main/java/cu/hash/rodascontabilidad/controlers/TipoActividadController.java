@@ -50,8 +50,8 @@ public class TipoActividadController {
         return new ResponseEntity<>(service.updateOrDeleteTipoActividad(tipo), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteTipoActividad(@RequestBody TipoActividadEntity tipo){
-        return new ResponseEntity<>(service.updateOrDeleteTipoActividad(tipo), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

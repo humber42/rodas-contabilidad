@@ -48,8 +48,8 @@ public class UebController {
         return new ResponseEntity<>(service.updateOrDeleteUEB(ueb), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteUEB(@RequestBody UebEntity ueb){
-        return new ResponseEntity<>(service.updateOrDeleteUEB(ueb), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

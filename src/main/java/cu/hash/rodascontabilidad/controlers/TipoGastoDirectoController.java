@@ -36,8 +36,8 @@ public class TipoGastoDirectoController {
         return new ResponseEntity<>(service.updateOrDeleteTipoGD(tipo), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteTipoGD(@RequestBody TipoGastoDirectoEntity tipo){
-        return new ResponseEntity<>(service.updateOrDeleteTipoGD(tipo), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

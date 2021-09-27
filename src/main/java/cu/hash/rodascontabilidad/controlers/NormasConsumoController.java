@@ -36,8 +36,8 @@ public class NormasConsumoController {
         return new ResponseEntity<>(service.updateOrDeleteNormaConsumo(norma), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteNormaConsumo(@RequestBody NormasConsumoEntity norma){
-        return new ResponseEntity<>(service.updateOrDeleteNormaConsumo(norma), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

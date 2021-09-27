@@ -41,8 +41,8 @@ public class PlanProduccionController {
         return new ResponseEntity<>(service.updateOrDeletePlanProduccion(plan), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deletePlanProduccion(@RequestBody PlanProduccionEntity plan){
-        return new ResponseEntity<>(service.updateOrDeletePlanProduccion(plan), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

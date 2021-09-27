@@ -46,8 +46,8 @@ public class PersonasAutorizadasController {
         return new ResponseEntity<>(service.updateOrDeletePersonaAutorizada(persona), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deletePersonaAutorizada(@RequestBody PersonasAutorizadasEntity persona){
-        return new ResponseEntity<>(service.updateOrDeletePersonaAutorizada(persona), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

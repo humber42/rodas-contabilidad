@@ -48,8 +48,8 @@ public class ClienteController {
         return new ResponseEntity<>(service.updateOrDeleteCliente(cliente), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteCliente(@RequestBody ClienteEntity cliente){
-        return new ResponseEntity<>(service.updateOrDeleteCliente(cliente), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

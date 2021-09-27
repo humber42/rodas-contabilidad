@@ -41,8 +41,8 @@ public class ReporteDiarioLaboralController {
         return new ResponseEntity<>(service.updateOrDeleteReporteDiarioLaboral(reporte), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteReporteDiarioLaboral(@RequestBody ReporteDiarioLaboralEntity reporte){
-        return new ResponseEntity<>(service.updateOrDeleteReporteDiarioLaboral(reporte), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

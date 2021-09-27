@@ -36,8 +36,8 @@ public class MaterialController {
         return new ResponseEntity<>(service.updateOrDeleteMaterial(material), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteMaterial(@RequestBody MaterialEntity material){
-        return new ResponseEntity<>(service.updateOrDeleteMaterial(material), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

@@ -42,8 +42,8 @@ public class ElementoGastoController {
         return new ResponseEntity<>(service.updateOrDeleteElementoGasto(elemento), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteElementoGasto(@RequestBody ElementoGastoEntity elemento){
-        return new ResponseEntity<>(service.updateOrDeleteElementoGasto(elemento), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

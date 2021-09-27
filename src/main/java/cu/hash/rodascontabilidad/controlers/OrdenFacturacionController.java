@@ -48,8 +48,8 @@ public class OrdenFacturacionController {
         return new ResponseEntity<>(service.updateOrDeleteOrdenFacturacion(orden), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteOrdenFacturacion(@RequestBody OrdenFacturacionEntity orden){
-        return new ResponseEntity<>(service.updateOrDeleteOrdenFacturacion(orden), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

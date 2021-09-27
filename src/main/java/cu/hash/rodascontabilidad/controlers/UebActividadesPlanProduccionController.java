@@ -36,8 +36,8 @@ public class UebActividadesPlanProduccionController {
         return new ResponseEntity<>(service.updateOrDeleteUebActividadPlanProduccion(ueb), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteUebActividadesPP(@RequestBody UebActividadesPlanProduccionEntity ueb){
-        return new ResponseEntity<>(service.updateOrDeleteUebActividadPlanProduccion(ueb), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

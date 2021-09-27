@@ -48,8 +48,8 @@ public class UnidadMedidaController {
         return new ResponseEntity<>(service.updateOrDeleteUM(um), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteUM(@RequestBody UnidadMedidaEntity um){
-        return new ResponseEntity<>(service.updateOrDeleteUM(um), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

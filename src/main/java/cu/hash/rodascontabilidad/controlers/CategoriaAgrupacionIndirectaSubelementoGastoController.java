@@ -38,9 +38,8 @@ public class CategoriaAgrupacionIndirectaSubelementoGastoController {
         return new ResponseEntity<>(service.updateOrDeleteCategoriaAgrupacionIndirectaSubelementoGastoEntity(categoria), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteCategoriaAgrupacionIndirectaSubElementoGasto
-            (@RequestBody CategoriaAgrupacionIndirectaSubelementoGastoEntity categoria){
-        return new ResponseEntity<>(service.updateOrDeleteCategoriaAgrupacionIndirectaSubelementoGastoEntity(categoria), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

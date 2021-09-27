@@ -41,8 +41,8 @@ public class GastosActividadController {
         return new ResponseEntity<>(service.updateOrDeleteGastosActividad(gasto), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteGastoActividad(@RequestBody GastosActividadEntity gasto){
-        return new ResponseEntity<>(service.updateOrDeleteGastosActividad(gasto), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }

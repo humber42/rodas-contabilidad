@@ -36,8 +36,8 @@ public class OrdenTrabajoController {
         return new ResponseEntity<>(service.updateOrDeleteOrdenTrabajo(orden), HttpStatus.OK);
     }
 
-    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE)
-    public ResponseEntity<?> deleteOrdenTrabajo(@RequestBody OrdenTrabajoEntity orden){
-        return new ResponseEntity<>(service.updateOrDeleteOrdenTrabajo(orden), HttpStatus.OK);
+    @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
+    public void deleteByID(@PathVariable Long id){
+        service.deleteById(id);
     }
 }
