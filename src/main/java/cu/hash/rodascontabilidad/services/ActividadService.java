@@ -25,7 +25,7 @@ public class ActividadService {
         return repository.findById(id);
     }
 
-    public  Optional<ActividadEntity> findByIdAndCodigo(Long id, String codigo){
+    public ActividadEntity findByIdAndCodigo(Long id, String codigo){
         return repository.findByIdAndCodigo(id, codigo);
     }
 
