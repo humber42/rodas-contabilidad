@@ -21,6 +21,9 @@ public class CategoriaAgrupacionIndirectaService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<CategoriaAgrupacionIndirectaDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

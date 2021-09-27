@@ -29,6 +29,9 @@ public class NormasConsumoService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<NormasConsumoDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

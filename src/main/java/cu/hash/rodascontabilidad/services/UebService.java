@@ -23,6 +23,9 @@ public class UebService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<UebDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

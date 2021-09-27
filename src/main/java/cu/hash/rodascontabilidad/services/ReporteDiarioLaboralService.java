@@ -22,6 +22,9 @@ public class ReporteDiarioLaboralService {
     public List<ReporteDiarioLaboralDto> findAll() {
         return repository.findAll().stream().map(this::mapper).collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<ReporteDiarioLaboralDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

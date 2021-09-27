@@ -30,6 +30,9 @@ public class CategoriaAgrupacionIndirectaSubelementoGastoService {
     public Optional<CategoriaAgrupacionIndirectaSubelementoGastoDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public CategoriaAgrupacionIndirectaSubelementoGastoDto addCategoriaAgrupacionIndirectaSubelementoGastoEntity(CategoriaAgrupacionIndirectaSubelementoGastoEntity categoriaAgrupacionIndirectaSubelementoGastoEntity) {
         return this.mapper(repository.save(categoriaAgrupacionIndirectaSubelementoGastoEntity));

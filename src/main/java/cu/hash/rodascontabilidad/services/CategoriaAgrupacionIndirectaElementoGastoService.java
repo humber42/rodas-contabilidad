@@ -27,6 +27,9 @@ public class CategoriaAgrupacionIndirectaElementoGastoService {
         return repository.findById(id);
     }
 
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
     public CategoriaAgrupacionIndirectaElementoGastoEntity addCategoriaAgrupacionIndirectaElementoGasto(CategoriaAgrupacionIndirectaElementoGastoEntity categoriaAgrupacionIndirectaElementoGastoEntity){
         return repository.save(categoriaAgrupacionIndirectaElementoGastoEntity);
     }

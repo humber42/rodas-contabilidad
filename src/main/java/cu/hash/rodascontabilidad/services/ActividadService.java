@@ -52,6 +52,10 @@ public class ActividadService {
         return this.mappearActividad(repository.saveAndFlush(actividadEntity));
     }
 
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
+
     private ActividadDto mappearActividad(ActividadEntity entity) {
         return ActividadDto.builder()
                 .id(entity.getId())

@@ -24,6 +24,9 @@ public class CoeficienteGastosindirectosProduccionService {
     public Optional<CoeficienteGastosindirectosProduccionDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public CoeficienteGastosindirectosProduccionDto addCoeficienteGIP(CoeficienteGastosIndirectosProduccionEntity coeficienteGastosIndirectosProduccionEntity) {
         return this.mapper(repository.save(coeficienteGastosIndirectosProduccionEntity));

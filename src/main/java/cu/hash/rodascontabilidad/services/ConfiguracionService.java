@@ -26,6 +26,9 @@ public class ConfiguracionService {
     public List<ConfiguracionDto> findAll() {
         return repository.findAll().stream().map(this::mapper).collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<ConfiguracionDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

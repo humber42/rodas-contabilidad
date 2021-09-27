@@ -21,6 +21,9 @@ public class CoeficienteGastosBancariosService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<CoeficienteGastosBancariosDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

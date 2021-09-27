@@ -21,6 +21,9 @@ public class TipoGastoIndirectoService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<TipoGastoIndirectoDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

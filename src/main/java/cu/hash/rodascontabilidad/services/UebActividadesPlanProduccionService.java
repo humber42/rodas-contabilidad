@@ -27,6 +27,9 @@ public class UebActividadesPlanProduccionService {
     public Optional<UebActividadesPlanProduccionDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public UebActividadesPlanProduccionDto addUebActividadPlanProduccion(UebActividadesPlanProduccionEntity uebActividadesPlanProduccionEntity) {
         return this.mapper(repository.save(uebActividadesPlanProduccionEntity));

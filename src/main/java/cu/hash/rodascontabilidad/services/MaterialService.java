@@ -23,6 +23,9 @@ public class MaterialService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<MaterialDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

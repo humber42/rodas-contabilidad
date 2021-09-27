@@ -22,6 +22,9 @@ public class CoeficienteGastosGeneralesAdmonService {
                 .collect(Collectors.toList());
     }
 
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
     public Optional<CoeficienteGastosGeneralesAdmonDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);
     }

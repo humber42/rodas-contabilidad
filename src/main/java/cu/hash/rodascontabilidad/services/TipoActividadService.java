@@ -22,6 +22,9 @@ public class TipoActividadService {
                 .collect(Collectors.toList());
     }
 
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
     public Optional<TipoActividadDto> findById(Long id) {
         return repository.findById(id).map(this::mapear);
     }

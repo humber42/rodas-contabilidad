@@ -24,6 +24,9 @@ public class EtapaService {
                 .collect(Collectors.toList());
     }
 
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
     public Optional<EtapaDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);
     }

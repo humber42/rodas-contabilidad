@@ -23,6 +23,9 @@ public class CargoService {
                 .map(this::mapear)
                 .collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<CargoDto> findById(Long id) {
         return repository.findById(id).map(this::mapear);

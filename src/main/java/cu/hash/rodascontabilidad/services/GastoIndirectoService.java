@@ -22,6 +22,9 @@ public class GastoIndirectoService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<GastoIndirectoDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

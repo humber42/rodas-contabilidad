@@ -22,6 +22,9 @@ public class UebEtapaService {
     public List<UebEtapaDto> findAll() {
         return repository.findAll().stream().map(this::mapper).collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<UebEtapaDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

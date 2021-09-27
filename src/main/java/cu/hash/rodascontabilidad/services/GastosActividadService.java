@@ -27,6 +27,9 @@ public class GastosActividadService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public List<GastosActividadDto> findAllByIdActividad(Long idActividad) {
         return repository.findAllByIdActividad(idActividad).stream()

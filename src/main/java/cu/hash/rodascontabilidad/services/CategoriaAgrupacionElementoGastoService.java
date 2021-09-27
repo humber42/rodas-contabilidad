@@ -26,6 +26,9 @@ public class CategoriaAgrupacionElementoGastoService {
                 .collect(Collectors.toList());
 
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<CategoriaAgrupacionElementoGastoDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

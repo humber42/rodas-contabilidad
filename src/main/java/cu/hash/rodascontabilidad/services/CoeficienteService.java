@@ -25,6 +25,9 @@ public class CoeficienteService {
     private CoeficienteGastosindirectosProduccionService coeficienteGastosindirectosProduccionService;
 
 
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
     public List<CoeficienteDto> findAll() {
         return repository.findAll().stream()
                 .map(this::mapper)

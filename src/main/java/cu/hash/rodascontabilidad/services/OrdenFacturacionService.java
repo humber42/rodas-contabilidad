@@ -25,6 +25,9 @@ public class OrdenFacturacionService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public Optional<OrdenFacturacionDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);

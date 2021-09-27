@@ -24,6 +24,9 @@ public class PlanProduccionService {
                 .stream().map(this::mapper)
                 .collect(Collectors.toList());
     }
+    public void deleteById(long id){
+        repository.deleteById(id);
+    }
 
     public List<PlanProduccionDto> findAllByIdUeb(Long idUEB) {
         return repository.findAllByIdUeb(idUEB).stream().map(this::mapper)
