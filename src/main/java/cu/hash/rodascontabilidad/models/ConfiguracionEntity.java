@@ -116,7 +116,7 @@ public class ConfiguracionEntity {
     }
 
     @Basic
-    @Column(name = "margen_utilidad_prod_MLC")
+    @Column(name = "margen_utilidad_prod_mlc")
     public Double getMargenUtilidadProdMlc() {
         return margenUtilidadProdMlc;
     }
@@ -126,7 +126,7 @@ public class ConfiguracionEntity {
     }
 
     @Basic
-    @Column(name = "margen_utilidad_prod_MT")
+    @Column(name = "margen_utilidad_prod_mt")
     public Double getMargenUtilidadProdMt() {
         return margenUtilidadProdMt;
     }
@@ -136,7 +136,7 @@ public class ConfiguracionEntity {
     }
 
     @Basic
-    @Column(name = "margen_utilidad_servicios_MLC")
+    @Column(name = "margen_utilidad_servicios_mlc")
     public Double getMargenUtilidadServiciosMlc() {
         return margenUtilidadServiciosMlc;
     }
@@ -146,7 +146,7 @@ public class ConfiguracionEntity {
     }
 
     @Basic
-    @Column(name = "margen_utilidad_servicios_MT")
+    @Column(name = "margen_utilidad_servicios_mt")
     public Double getMargenUtilidadServiciosMt() {
         return margenUtilidadServiciosMt;
     }

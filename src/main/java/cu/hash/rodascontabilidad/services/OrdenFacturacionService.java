@@ -53,7 +53,7 @@ public class OrdenFacturacionService {
         return OrdenFacturacionDto.builder()
                 .id(entity.getId())
                 .codigo(entity.getCodigo())
-                .pS(entity.getpS())
+                .pS(entity.getProveedorServicio())
                 .idUnidadMedida(entity.getIdUnidadMedida())
                 .cantidad(entity.getCantidad())
                 .precioMn(entity.getPrecioMn())

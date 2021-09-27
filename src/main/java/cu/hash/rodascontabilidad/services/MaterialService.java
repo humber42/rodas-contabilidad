@@ -45,7 +45,7 @@ public class MaterialService {
                 .fecha(entity.getFecha())
                 .importeMn(entity.getImporteMn())
                 .importeMlc(entity.getImporteMlc())
-                .noVSalida(entity.getNoVSalida())
+                .noVSalida(entity.getNoVentaSalida())
                 .total(entity.getTotal())
                 .idOrdenTrabajo(entity.getIdOrdenTrabajo())
                 .ordenTrabajoDto(ordenTrabajoService.findById(entity.getIdOrdenTrabajo()).get())

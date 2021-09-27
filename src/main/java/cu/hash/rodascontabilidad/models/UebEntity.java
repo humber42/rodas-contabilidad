@@ -56,7 +56,7 @@ public class UebEntity {
     }
 
     @Basic
-    @Column(name = "coeficiente_est_MN")
+    @Column(name = "coeficiente_est_mn")
     public Double getCoeficienteEstMn() {
         return coeficienteEstMn;
     }
@@ -66,7 +66,7 @@ public class UebEntity {
     }
 
     @Basic
-    @Column(name = "coeficiente_est_MLC")
+    @Column(name = "coeficiente_est_mlc")
     public Double getCoeficienteEstMlc() {
         return coeficienteEstMlc;
     }

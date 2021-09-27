@@ -33,7 +33,7 @@ public class TipoActividadEntity {
     }
 
     @Basic
-    @Column(name = "nombre ")
+    @Column(name = "nombre")
     public String getNombre() {
         return nombre;
     }

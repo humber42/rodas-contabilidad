@@ -11,7 +11,7 @@ public class MaterialEntity {
     private Date fecha;
     private Double importeMn;
     private Double importeMlc;
-    private String noVSalida;
+    private String noVentaSalida;
     private Double total;
     private Long idOrdenTrabajo;
 
@@ -37,7 +37,7 @@ public class MaterialEntity {
     }
 
     @Basic
-    @Column(name = "importeMN")
+    @Column(name = "importe_mn")
     public Double getImporteMn() {
         return importeMn;
     }
@@ -47,7 +47,7 @@ public class MaterialEntity {
     }
 
     @Basic
-    @Column(name = "importeMLC")
+    @Column(name = "importe_mlc")
     public Double getImporteMlc() {
         return importeMlc;
     }
@@ -57,13 +57,13 @@ public class MaterialEntity {
     }
 
     @Basic
-    @Column(name = "no_v_salida")
-    public String getNoVSalida() {
-        return noVSalida;
+    @Column(name = "no_venta_salida")
+    public String getNoVentaSalida() {
+        return noVentaSalida;
     }
 
-    public void setNoVSalida(String noVSalida) {
-        this.noVSalida = noVSalida;
+    public void setNoVentaSalida(String noVentaSalida) {
+        this.noVentaSalida = noVentaSalida;
     }
 
     @Basic
@@ -95,13 +95,15 @@ public class MaterialEntity {
                 Objects.equals(fecha, that.fecha) &&
                 Objects.equals(importeMn, that.importeMn) &&
                 Objects.equals(importeMlc, that.importeMlc) &&
-                Objects.equals(noVSalida, that.noVSalida) &&
+                Objects.equals(noVentaSalida, that.noVentaSalida) &&
                 Objects.equals(total, that.total) &&
                 Objects.equals(idOrdenTrabajo, that.idOrdenTrabajo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, fecha, importeMn, importeMlc, noVSalida, total, idOrdenTrabajo);
+        return Objects.hash(id, fecha, importeMn, importeMlc, noVentaSalida, total, idOrdenTrabajo);
     }
+
+
 }

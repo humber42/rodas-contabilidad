@@ -66,7 +66,7 @@ public class CargoEntity {
     }
 
     @Basic
-    @Column(name = "salario_minimo_MLC")
+    @Column(name = "salario_minimo_mlc")
     public Double getSalarioMinimoMlc() {
         return salarioMinimoMlc;
     }
@@ -76,7 +76,7 @@ public class CargoEntity {
     }
 
     @Basic
-    @Column(name = "salario_maximo_MLC")
+    @Column(name = "salario_maximo_mlc")
     public Double getSalarioMaximoMlc() {
         return salarioMaximoMlc;
     }

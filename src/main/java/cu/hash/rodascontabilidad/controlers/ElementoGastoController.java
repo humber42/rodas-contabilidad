@@ -1,6 +1,5 @@
 package cu.hash.rodascontabilidad.controlers;
 
-import com.netflix.discovery.converters.Auto;
 import cu.hash.rodascontabilidad.constants.WebResourceKeyConstants;
 import cu.hash.rodascontabilidad.models.ElementoGastoEntity;
 import cu.hash.rodascontabilidad.services.ElementoGastoService;

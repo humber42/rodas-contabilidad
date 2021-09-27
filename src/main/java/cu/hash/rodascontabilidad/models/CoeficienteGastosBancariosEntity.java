@@ -29,7 +29,7 @@ public class CoeficienteGastosBancariosEntity {
     }
 
     @Basic
-    @Column(name = "coeficiente_gasto_total_MN")
+    @Column(name = "coeficiente_gasto_total_mn")
     public Double getCoeficienteGastoTotalMn() {
         return coeficienteGastoTotalMn;
     }
@@ -39,7 +39,7 @@ public class CoeficienteGastosBancariosEntity {
     }
 
     @Basic
-    @Column(name = "coeficiente_gasto_total_MLC")
+    @Column(name = "coeficiente_gasto_total_mlc")
     public Double getCoeficienteGastoTotalMlc() {
         return coeficienteGastoTotalMlc;
     }
@@ -49,7 +49,7 @@ public class CoeficienteGastosBancariosEntity {
     }
 
     @Basic
-    @Column(name = "coeficiente_gasto_total_MT")
+    @Column(name = "coeficiente_gasto_total_mt")
     public Double getCoeficienteGastoTotalMt() {
         return coeficienteGastoTotalMt;
     }
@@ -59,7 +59,7 @@ public class CoeficienteGastosBancariosEntity {
     }
 
     @Basic
-    @Column(name = "coeficiente_gasto_deprec_MN")
+    @Column(name = "coeficiente_gasto_deprec_mn")
     public Double getCoeficienteGastoDeprecMn() {
         return coeficienteGastoDeprecMn;
     }
@@ -69,7 +69,7 @@ public class CoeficienteGastosBancariosEntity {
     }
 
     @Basic
-    @Column(name = "coeficiente_gasto_deprec_MLC")
+    @Column(name = "coeficiente_gasto_deprec_mlc")
     public Double getCoeficienteGastoDeprecMlc() {
         return coeficienteGastoDeprecMlc;
     }
@@ -79,7 +79,7 @@ public class CoeficienteGastosBancariosEntity {
     }
 
     @Basic
-    @Column(name = "coeficiente_gasto_deprec_MT")
+    @Column(name = "coeficiente_gasto_deprec_mt")
     public Double getCoeficienteGastoDeprecMt() {
         return coeficienteGastoDeprecMt;
     }
@@ -89,7 +89,7 @@ public class CoeficienteGastosBancariosEntity {
     }
 
     @Basic
-    @Column(name = "coeficiente_gasto_mantenimiento_y_rep_MN")
+    @Column(name = "coeficiente_gasto_mantenimiento_y_rep_mn")
     public Double getCoeficienteGastoMantenimientoYRepMn() {
         return coeficienteGastoMantenimientoYRepMn;
     }
@@ -99,7 +99,7 @@ public class CoeficienteGastosBancariosEntity {
     }
 
     @Basic
-    @Column(name = "coeficiente_gasto_mantenimiento_y_rep_MLC")
+    @Column(name = "coeficiente_gasto_mantenimiento_y_rep_mlc")
     public Double getCoeficienteGastoMantenimientoYRepMlc() {
         return coeficienteGastoMantenimientoYRepMlc;
     }
@@ -109,7 +109,7 @@ public class CoeficienteGastosBancariosEntity {
     }
 
     @Basic
-    @Column(name = "coeficiente_gasto_mantenimiento_y_rep_MT")
+    @Column(name = "coeficiente_gasto_mantenimiento_y_rep_mt")
     public Double getCoeficienteGastoMantenimientoYRepMt() {
         return coeficienteGastoMantenimientoYRepMt;
     }
