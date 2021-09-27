@@ -11,5 +11,5 @@ import java.util.Optional;
 @Repository
 public interface ActividadRepository extends JpaRepository<ActividadEntity, Long> {
     List<ActividadEntity> findAllByIdTipoActividad(Long id);
-    Optional<ActividadEntity> findByIdAndCodigo(Long id, String codigo);
+    ActividadEntity findByIdAndCodigo(Long id, String codigo);
 }
