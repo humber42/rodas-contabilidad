@@ -8,7 +8,7 @@ import java.util.Objects;
 public class OrdenFacturacionEntity {
     private long id;
     private String codigo;
-    private String pS;
+    private String proveedorServicio;
     private Long idUnidadMedida;
     private Long cantidad;
     private Double precioMn;
@@ -40,13 +40,13 @@ public class OrdenFacturacionEntity {
     }
 
     @Basic
-    @Column(name = "p/s")
-    public String getpS() {
-        return pS;
+    @Column(name = "proveedor_servicio")
+    public String getProveedorServicio() {
+        return proveedorServicio;
     }
 
-    public void setpS(String pS) {
-        this.pS = pS;
+    public void setProveedorServicio(String proveedorServicio) {
+        this.proveedorServicio = proveedorServicio;
     }
 
     @Basic
@@ -70,7 +70,7 @@ public class OrdenFacturacionEntity {
     }
 
     @Basic
-    @Column(name = "precioMN")
+    @Column(name = "precio_mn")
     public Double getPrecioMn() {
         return precioMn;
     }
@@ -80,7 +80,7 @@ public class OrdenFacturacionEntity {
     }
 
     @Basic
-    @Column(name = "precioMLC")
+    @Column(name = "precio_mlc")
     public Double getPrecioMlc() {
         return precioMlc;
     }
@@ -90,7 +90,7 @@ public class OrdenFacturacionEntity {
     }
 
     @Basic
-    @Column(name = "importeMN")
+    @Column(name = "importe_mn")
     public Double getImporteMn() {
         return importeMn;
     }
@@ -100,7 +100,7 @@ public class OrdenFacturacionEntity {
     }
 
     @Basic
-    @Column(name = "importeMLC")
+    @Column(name = "importe_mlc")
     public Double getImporteMlc() {
         return importeMlc;
     }
@@ -136,7 +136,7 @@ public class OrdenFacturacionEntity {
         OrdenFacturacionEntity that = (OrdenFacturacionEntity) o;
         return id == that.id &&
                 Objects.equals(codigo, that.codigo) &&
-                Objects.equals(pS, that.pS) &&
+                Objects.equals(proveedorServicio, that.proveedorServicio) &&
                 Objects.equals(idUnidadMedida, that.idUnidadMedida) &&
                 Objects.equals(cantidad, that.cantidad) &&
                 Objects.equals(precioMn, that.precioMn) &&
@@ -149,6 +149,6 @@ public class OrdenFacturacionEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, codigo, pS, idUnidadMedida, cantidad, precioMn, precioMlc, importeMn, importeMlc, descripcion, idOrdenTrabajo);
+        return Objects.hash(id, codigo, proveedorServicio, idUnidadMedida, cantidad, precioMn, precioMlc, importeMn, importeMlc, descripcion, idOrdenTrabajo);
     }
 }

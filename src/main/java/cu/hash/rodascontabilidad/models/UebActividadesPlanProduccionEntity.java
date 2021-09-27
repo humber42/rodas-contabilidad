@@ -7,8 +7,8 @@ import java.util.Objects;
 @Table(name = "ueb_actividades_plan_produccion", schema = "public", catalog = "rodas-contabilidad")
 public class UebActividadesPlanProduccionEntity {
     private long id;
-    private long idPlanProduccion;
-    private long idActividad;
+    private Long idPlanProduccion;
+    private Long idActividad;
 
     @Id
     @Column(name = "id")
@@ -21,24 +21,23 @@ public class UebActividadesPlanProduccionEntity {
         this.id = id;
     }
 
-
     @Basic
     @Column(name = "id_plan_produccion")
-    public long getIdPlanProduccion() {
+    public Long getIdPlanProduccion() {
         return idPlanProduccion;
     }
 
-    public void setIdPlanProduccion(long idPlanProduccion) {
+    public void setIdPlanProduccion(Long idPlanProduccion) {
         this.idPlanProduccion = idPlanProduccion;
     }
 
     @Basic
     @Column(name = "id_actividad")
-    public long getIdActividad() {
+    public Long getIdActividad() {
         return idActividad;
     }
 
-    public void setIdActividad(long idActividad) {
+    public void setIdActividad(Long idActividad) {
         this.idActividad = idActividad;
     }
 
@@ -48,8 +47,8 @@ public class UebActividadesPlanProduccionEntity {
         if (o == null || getClass() != o.getClass()) return false;
         UebActividadesPlanProduccionEntity that = (UebActividadesPlanProduccionEntity) o;
         return id == that.id &&
-                idPlanProduccion == that.idPlanProduccion &&
-                idActividad == that.idActividad;
+                Objects.equals(idPlanProduccion, that.idPlanProduccion) &&
+                Objects.equals(idActividad, that.idActividad);
     }
 
     @Override
