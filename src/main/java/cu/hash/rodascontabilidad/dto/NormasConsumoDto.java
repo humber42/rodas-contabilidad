@@ -2,6 +2,8 @@ package cu.hash.rodascontabilidad.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @Builder
@@ -25,4 +27,6 @@ public class NormasConsumoDto {
     private ActividadDto actividad;
     private PlanProduccionDto planProduccion;
     private UebDto ueb;
+
+    private List<FichaCostoDto> fichaCostoList;
 }

@@ -2,6 +2,8 @@ package cu.hash.rodascontabilidad.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,5 +16,7 @@ public class ElementoGastoDto {
     private Long orden;
     private String descripcion;
     private String codigoElemento;
+
+    private List<SubelementoGastoDto> subelementoGastoList;
 
 }

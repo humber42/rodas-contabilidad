@@ -2,6 +2,8 @@ package cu.hash.rodascontabilidad.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,4 +17,11 @@ public class UebDto {
     private Double coeficienteEstMn;
     private Double coeficienteEstMlc;
     private Double pagoResultadoPercent;
+
+    //Lists grouping entities
+    private List<PlanProduccionDto> planProduccionList;
+    private List<NormasConsumoDto> normasConsumoList;
+    private List<OrdenTrabajoDto> ordenTrabajoList;
+    private List<TrabajadorDto> trabajadorList;
+    private List<EtapaDto> etapaList;
 }

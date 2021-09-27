@@ -2,6 +2,8 @@ package cu.hash.rodascontabilidad.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
@@ -13,4 +15,7 @@ public class FichaCostoDto {
     private Boolean aprobada;
 
     private ActividadDto actividad;
+
+    private List<NormasConsumoDto> normasConsumoList;
+    private List<OrdenTrabajoDto> ordenTrabajoList;
 }

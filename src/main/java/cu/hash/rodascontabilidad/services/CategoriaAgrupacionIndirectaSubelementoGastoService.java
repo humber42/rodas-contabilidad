@@ -1,5 +1,6 @@
 package cu.hash.rodascontabilidad.services;
 
+import cu.hash.rodascontabilidad.dto.CategoriaAgrupacionIndirectaSubelementoGastoDto;
 import cu.hash.rodascontabilidad.models.CategoriaAgrupacionIndirectaSubelementoGastoEntity;
 import cu.hash.rodascontabilidad.repository.CategoriaAgrupacionIndirectaSubelementoGastoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,25 +8,48 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoriaAgrupacionIndirectaSubelementoGastoService {
     @Autowired
     private CategoriaAgrupacionIndirectaSubelementoGastoRepository repository;
 
-    public List<CategoriaAgrupacionIndirectaSubelementoGastoEntity> findAll(){
-        return repository.findAll();
+    @Autowired
+    private CategoriaAgrupacionIndirectaService categoriaAgrupacionIndirectaService;
+    @Autowired
+    private SubelementoGastoService subelementoGastoService;
+
+    public List<CategoriaAgrupacionIndirectaSubelementoGastoDto> findAll() {
+        return repository.findAll()
+                .stream()
+                .map(this::mapper)
+                .collect(Collectors.toList());
     }
 
-    public Optional<CategoriaAgrupacionIndirectaSubelementoGastoEntity> findById(Long id){
-        return repository.findById(id);
+    public Optional<CategoriaAgrupacionIndirectaSubelementoGastoDto> findById(Long id) {
+        return repository.findById(id).map(this::mapper);
+    }
+    public void deleteById(long id){
+        repository.deleteById(id);
     }
 
-    public CategoriaAgrupacionIndirectaSubelementoGastoEntity addCategoriaAgrupacionIndirectaSubelementoGastoEntity(CategoriaAgrupacionIndirectaSubelementoGastoEntity categoriaAgrupacionIndirectaSubelementoGastoEntity){
-        return repository.save(categoriaAgrupacionIndirectaSubelementoGastoEntity);
+    public CategoriaAgrupacionIndirectaSubelementoGastoDto addCategoriaAgrupacionIndirectaSubelementoGastoEntity(CategoriaAgrupacionIndirectaSubelementoGastoEntity categoriaAgrupacionIndirectaSubelementoGastoEntity) {
+        return this.mapper(repository.save(categoriaAgrupacionIndirectaSubelementoGastoEntity));
     }
 
-    public CategoriaAgrupacionIndirectaSubelementoGastoEntity updateOrDeleteCategoriaAgrupacionIndirectaSubelementoGastoEntity(CategoriaAgrupacionIndirectaSubelementoGastoEntity categoriaAgrupacionIndirectaSubelementoGastoEntity){
-        return repository.saveAndFlush(categoriaAgrupacionIndirectaSubelementoGastoEntity);
+    public CategoriaAgrupacionIndirectaSubelementoGastoDto updateOrDeleteCategoriaAgrupacionIndirectaSubelementoGastoEntity(CategoriaAgrupacionIndirectaSubelementoGastoEntity categoriaAgrupacionIndirectaSubelementoGastoEntity) {
+        return this.mapper(repository.saveAndFlush(categoriaAgrupacionIndirectaSubelementoGastoEntity));
+    }
+
+    private CategoriaAgrupacionIndirectaSubelementoGastoDto mapper(CategoriaAgrupacionIndirectaSubelementoGastoEntity entity) {
+        return CategoriaAgrupacionIndirectaSubelementoGastoDto.builder()
+                .id(entity.getId())
+                .idCategoriaAgrupacionIndirecta(entity.getIdCategoriaAgrupacionIndirecta())
+                .idSubelementoGasto(entity.getIdSubelementoGasto())
+                .orden(entity.getOrden())
+                .categoriaAgrupacionIndirecta(categoriaAgrupacionIndirectaService.findById(entity.getIdCategoriaAgrupacionIndirecta()).get())
+                .subelementoGasto(subelementoGastoService.findById(entity.getIdSubelementoGasto()).get())
+                .build();
     }
 }
