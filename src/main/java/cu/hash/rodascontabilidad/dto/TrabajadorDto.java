@@ -2,6 +2,8 @@ package cu.hash.rodascontabilidad.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,4 +16,7 @@ public class TrabajadorDto {
     private Long idUeb;
 
     private UebDto ueb;
+    private CargoDto cargoDto;
+
+    private List<ReporteDiarioLaboralDto> reporteDiarioLaboralList;
 }

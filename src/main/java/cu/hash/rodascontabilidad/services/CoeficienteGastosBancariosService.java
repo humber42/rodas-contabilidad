@@ -1,5 +1,6 @@
 package cu.hash.rodascontabilidad.services;
 
+import cu.hash.rodascontabilidad.dto.CoeficienteGastosBancariosDto;
 import cu.hash.rodascontabilidad.models.CoeficienteGastosBancariosEntity;
 import cu.hash.rodascontabilidad.repository.CoeficienteGastosBancariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,25 +8,44 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CoeficienteGastosBancariosService {
     @Autowired
     private CoeficienteGastosBancariosRepository repository;
 
-    public List<CoeficienteGastosBancariosEntity> findAll(){
-        return repository.findAll();
+    public List<CoeficienteGastosBancariosDto> findAll() {
+        return repository.findAll()
+                .stream()
+                .map(this::mapper)
+                .collect(Collectors.toList());
     }
 
-    public Optional<CoeficienteGastosBancariosEntity> findById(Long id){
-        return repository.findById(id);
+    public Optional<CoeficienteGastosBancariosDto> findById(Long id) {
+        return repository.findById(id).map(this::mapper);
     }
 
-    public CoeficienteGastosBancariosEntity addCoeficienteGB(CoeficienteGastosBancariosEntity coeficienteGastosBancariosEntity){
-        return repository.save(coeficienteGastosBancariosEntity);
+    public CoeficienteGastosBancariosDto addCoeficienteGB(CoeficienteGastosBancariosEntity coeficienteGastosBancariosEntity) {
+        return this.mapper(repository.save(coeficienteGastosBancariosEntity));
     }
 
-    public CoeficienteGastosBancariosEntity updateOrDeleteCoeficienteGB(CoeficienteGastosBancariosEntity coeficienteGastosBancariosEntity){
-        return repository.saveAndFlush(coeficienteGastosBancariosEntity);
+    public CoeficienteGastosBancariosDto updateOrDeleteCoeficienteGB(CoeficienteGastosBancariosEntity coeficienteGastosBancariosEntity) {
+        return this.mapper(repository.saveAndFlush(coeficienteGastosBancariosEntity));
+    }
+
+    private CoeficienteGastosBancariosDto mapper(CoeficienteGastosBancariosEntity entity) {
+        return CoeficienteGastosBancariosDto.builder()
+                .id(entity.getId())
+                .coeficienteGastoTotalMn(entity.getCoeficienteGastoTotalMn())
+                .coeficienteGastoTotalMlc(entity.getCoeficienteGastoTotalMlc())
+                .coeficienteGastoTotalMt(entity.getCoeficienteGastoTotalMt())
+                .coeficienteGastoDeprecMn(entity.getCoeficienteGastoDeprecMn())
+                .coeficienteGastoDeprecMlc(entity.getCoeficienteGastoDeprecMlc())
+                .coeficienteGastoDeprecMt(entity.getCoeficienteGastoDeprecMt())
+                .coeficienteGastoMantenimientoYRepMn(entity.getCoeficienteGastoMantenimientoYRepMn())
+                .coeficienteGastoMantenimientoYRepMlc(entity.getCoeficienteGastoMantenimientoYRepMlc())
+                .coeficienteGastoMantenimientoYRepMt(entity.getCoeficienteGastoMantenimientoYRepMt())
+                .build();
     }
 }

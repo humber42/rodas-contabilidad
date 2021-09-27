@@ -2,6 +2,8 @@ package cu.hash.rodascontabilidad.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,5 +17,7 @@ public class CargoDto {
     private Double salarioBasicoMaximo;
     private Double salarioMinimoMlc;
     private Double salarioMaximoMlc;
+
+    private List<PersonasAutorizadasDto> personasAutorizadasList;
 
 }

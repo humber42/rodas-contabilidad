@@ -1,5 +1,6 @@
 package cu.hash.rodascontabilidad.services;
 
+import cu.hash.rodascontabilidad.dto.CategoriaAgrupacionIndirectaElementoGastoDto;
 import cu.hash.rodascontabilidad.models.CategoriaAgrupacionIndirectaElementoGastoEntity;
 import cu.hash.rodascontabilidad.repository.CategoriaAgrupacionIndirectaElementoGastoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,11 @@ import java.util.Optional;
 public class CategoriaAgrupacionIndirectaElementoGastoService {
     @Autowired
     private CategoriaAgrupacionIndirectaElementoGastoRepository repository;
+
+    @Autowired
+    private ElementoGastoService elementoGastoService;
+    @Autowired
+    private CategoriaAgrupacionIndirectaService categoriaAgrupacionIndirectaService;
 
     public List<CategoriaAgrupacionIndirectaElementoGastoEntity> findAll(){
         return repository.findAll();
@@ -27,5 +33,16 @@ public class CategoriaAgrupacionIndirectaElementoGastoService {
 
     public CategoriaAgrupacionIndirectaElementoGastoEntity updateOrDeleteCategoriaAgrupacionIndirectaElementoGasto(CategoriaAgrupacionIndirectaElementoGastoEntity categoriaAgrupacionIndirectaElementoGastoEntity){
         return repository.saveAndFlush(categoriaAgrupacionIndirectaElementoGastoEntity);
+    }
+
+    private CategoriaAgrupacionIndirectaElementoGastoDto mapper(CategoriaAgrupacionIndirectaElementoGastoEntity entity) {
+        return CategoriaAgrupacionIndirectaElementoGastoDto.builder()
+                .id(entity.getId())
+                .idCategoriaAgrupacionIndirecta(entity.getIdCategoriaAgrupacionIndirecta())
+                .idElementoGasto(entity.getIdElementoGasto())
+                .elementoGasto(elementoGastoService.findById(entity.getIdElementoGasto()).get())
+                .categoriaAgrupacionIndirecta(categoriaAgrupacionIndirectaService.findById(entity.getIdCategoriaAgrupacionIndirecta()).get())
+                .build();
+
     }
 }

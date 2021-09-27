@@ -1,5 +1,6 @@
 package cu.hash.rodascontabilidad.services;
 
+import cu.hash.rodascontabilidad.dto.GastosActividadDto;
 import cu.hash.rodascontabilidad.models.GastosActividadEntity;
 import cu.hash.rodascontabilidad.repository.GastosActividadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,29 +8,53 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class GastosActividadService {
     @Autowired
     private GastosActividadRepository repository;
+    @Autowired
+    private GastoDirectoService gastoDirectoService;
+    @Autowired
+    private GastoIndirectoService gastoIndirectoService;
+    @Autowired
+    private ActividadService actividadService;
 
-    public List<GastosActividadEntity> findAll(){
-        return repository.findAll();
+    public List<GastosActividadDto> findAll() {
+        return repository.findAll()
+                .stream()
+                .map(this::mapper)
+                .collect(Collectors.toList());
     }
 
-    public List<GastosActividadEntity> findAllByIdActividad(Long idActividad){
-        return repository.findAllByIdActividad(idActividad);
+    public List<GastosActividadDto> findAllByIdActividad(Long idActividad) {
+        return repository.findAllByIdActividad(idActividad).stream()
+                .map(this::mapper)
+                .collect(Collectors.toList());
     }
 
-    public Optional<GastosActividadEntity> findById(Long id){
-        return repository.findById(id);
+    public Optional<GastosActividadDto> findById(Long id) {
+        return repository.findById(id).map(this::mapper);
     }
 
-    public GastosActividadEntity addGastosActividad(GastosActividadEntity gastosActividadEntity){
-        return repository.save(gastosActividadEntity);
+    public GastosActividadDto addGastosActividad(GastosActividadEntity gastosActividadEntity) {
+        return this.mapper(repository.save(gastosActividadEntity));
     }
 
-    public GastosActividadEntity updateOrDeleteGastosActividad(GastosActividadEntity gastosActividadEntity){
-        return repository.saveAndFlush(gastosActividadEntity);
+    public GastosActividadDto updateOrDeleteGastosActividad(GastosActividadEntity gastosActividadEntity) {
+        return this.mapper(repository.saveAndFlush(gastosActividadEntity));
+    }
+
+    private GastosActividadDto mapper(GastosActividadEntity entity) {
+        return GastosActividadDto.builder()
+                .id(entity.getId())
+                .idActividad(entity.getIdActividad())
+                .idGastoDirecto(entity.getIdGastoDirecto())
+                .idGastoIndirecto(entity.getIdGastoIndirecto())
+                .gastoDirecto(gastoDirectoService.findById(entity.getIdGastoDirecto()).get())
+                .gastoIndirecto(gastoIndirectoService.findById(entity.getIdGastoIndirecto()).get())
+                .actividad(actividadService.findById(entity.getIdActividad()).get())
+                .build();
     }
 }
