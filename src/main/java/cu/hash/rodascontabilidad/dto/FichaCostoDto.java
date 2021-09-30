@@ -1,5 +1,7 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.NormasConsumoWithoutList;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.OrdenTrabajoWhithoutList;
 import lombok.*;
 
 import java.util.List;
@@ -16,6 +18,6 @@ public class FichaCostoDto {
 
     private ActividadDto actividad;
 
-    private List<NormasConsumoDto> normasConsumoList;
-    private List<OrdenTrabajoDto> ordenTrabajoList;
+    private List<NormasConsumoWithoutList> normasConsumoList;
+    private List<OrdenTrabajoWhithoutList> ordenTrabajoList;
 }

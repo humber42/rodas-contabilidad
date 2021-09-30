@@ -26,6 +26,10 @@ public class TrabajadorService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+
+    public List<TrabajadorEntity> findAllWithoutMapping(){
+        return repository.findAll();
+    }
     public void deleteById(long id){
         repository.deleteById(id);
     }

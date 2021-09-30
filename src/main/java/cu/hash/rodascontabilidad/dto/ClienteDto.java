@@ -1,5 +1,6 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.OrdenTrabajoWhithoutList;
 import lombok.*;
 
 import java.util.List;
@@ -14,5 +15,5 @@ public class ClienteDto {
     private String nombre;
     private String descripcion;
 
-    private List<OrdenTrabajoDto> ordenTrabajoList;
+    private List<OrdenTrabajoWhithoutList> ordenTrabajoList;
 }

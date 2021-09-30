@@ -1,5 +1,7 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.OrdenTrabajoWhithoutList;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.PlanProduccionWithoutList;
 import lombok.*;
 
 import java.util.List;
@@ -22,7 +24,7 @@ public class ActividadDto {
     private String descripcion;
 
     //Lists by grouping
-    private List<PlanProduccionDto> planProduccionList;
-    private List<OrdenTrabajoDto> ordenTrabajoList;
+    private List<PlanProduccionWithoutList> planProduccionList;
+    private List<OrdenTrabajoWhithoutList> ordenTrabajoList;
 
 }

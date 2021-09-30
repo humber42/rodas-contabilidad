@@ -1,5 +1,6 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.ReporteDiarioLaboralWithoutList;
 import lombok.*;
 
 import java.util.List;
@@ -18,5 +19,5 @@ public class TrabajadorDto {
     private UebDto ueb;
     private CargoDto cargoDto;
 
-    private List<ReporteDiarioLaboralDto> reporteDiarioLaboralList;
+    private List<ReporteDiarioLaboralWithoutList> reporteDiarioLaboralList;
 }

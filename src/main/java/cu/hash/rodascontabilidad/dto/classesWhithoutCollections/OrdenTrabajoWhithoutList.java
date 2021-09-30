@@ -1,18 +1,15 @@
-package cu.hash.rodascontabilidad.dto;
+package cu.hash.rodascontabilidad.dto.classesWhithoutCollections;
 
-import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.MaterialWithoutList;
-import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.OrdenFacturacionWithoutList;
 import lombok.*;
 
 import java.sql.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode
-public class OrdenTrabajoDto {
+public class OrdenTrabajoWhithoutList {
     private long id;
     private Long idActividad;
     private Long idCliente;
@@ -31,16 +28,5 @@ public class OrdenTrabajoDto {
     private String identidadUsuario;
     private Boolean cerrada;
     private Long idFichaCosto;
-
-    //Entities
-    private ActividadDto actividad;
-    private ClienteDto cliente;
-    private UebDto ueb;
-    private CargoDto cargo;
-    private FichaCostoDto fichaCostoDto;
-
-    //Lists by grouping
-    private List<MaterialWithoutList> materialList;
-    private List<OrdenFacturacionWithoutList> ordenFacturacionList;
 
 }

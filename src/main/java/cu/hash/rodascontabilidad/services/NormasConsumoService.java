@@ -29,6 +29,11 @@ public class NormasConsumoService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+
+
+    public List<NormasConsumoEntity> findAllWithoutMapping(){
+        return repository.findAll();
+    }
     public void deleteById(long id){
         repository.deleteById(id);
     }

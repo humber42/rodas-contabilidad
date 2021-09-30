@@ -23,6 +23,10 @@ public class SubelementoGastoService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+
+    public List<SubelementoGastoEntity> findAllWithoutMapping(){
+        return repository.findAll();
+    }
     public void deleteById(long id){
         repository.deleteById(id);
     }

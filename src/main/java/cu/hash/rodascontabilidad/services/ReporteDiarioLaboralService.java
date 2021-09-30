@@ -22,6 +22,10 @@ public class ReporteDiarioLaboralService {
     public List<ReporteDiarioLaboralDto> findAll() {
         return repository.findAll().stream().map(this::mapper).collect(Collectors.toList());
     }
+
+    public List<ReporteDiarioLaboralEntity> findAllWithoutMapping(){
+        return repository.findAll();
+    }
     public void deleteById(long id){
         repository.deleteById(id);
     }

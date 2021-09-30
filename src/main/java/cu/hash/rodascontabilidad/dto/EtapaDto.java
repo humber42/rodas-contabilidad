@@ -1,5 +1,6 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.UebWithoutList;
 import lombok.*;
 
 import java.util.List;
@@ -15,5 +16,5 @@ public class EtapaDto {
     private String descripcion;
     private Long orden;
 
-    private List<UebDto> uebList;
+    private List<UebWithoutList> uebList;
 }

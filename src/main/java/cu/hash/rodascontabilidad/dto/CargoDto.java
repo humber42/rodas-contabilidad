@@ -1,5 +1,6 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.PersonaAutorizadaWithoutList;
 import lombok.*;
 
 import java.util.List;
@@ -18,6 +19,6 @@ public class CargoDto {
     private Double salarioMinimoMlc;
     private Double salarioMaximoMlc;
 
-    private List<PersonasAutorizadasDto> personasAutorizadasList;
+    private List<PersonaAutorizadaWithoutList> personasAutorizadasList;
 
 }

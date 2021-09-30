@@ -25,6 +25,9 @@ public class OrdenFacturacionService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+    public List<OrdenFacturacionEntity> findAllWithoutMapping(){
+        return repository.findAll();
+    }
     public void deleteById(long id){
         repository.deleteById(id);
     }

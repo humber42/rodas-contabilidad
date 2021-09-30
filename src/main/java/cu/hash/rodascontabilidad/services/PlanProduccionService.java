@@ -24,6 +24,11 @@ public class PlanProduccionService {
                 .stream().map(this::mapper)
                 .collect(Collectors.toList());
     }
+
+    public List<PlanProduccionEntity> findAllWithoutMapping(){
+        return repository.findAll();
+    }
+
     public void deleteById(long id){
         repository.deleteById(id);
     }

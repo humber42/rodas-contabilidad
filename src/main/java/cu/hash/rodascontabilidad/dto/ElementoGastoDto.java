@@ -1,5 +1,6 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.SubElementoGastoWithoutList;
 import lombok.*;
 
 import java.util.List;
@@ -17,6 +18,6 @@ public class ElementoGastoDto {
     private String descripcion;
     private String codigoElemento;
 
-    private List<SubelementoGastoDto> subelementoGastoList;
+    private List<SubElementoGastoWithoutList> subelementoGastoList;
 
 }

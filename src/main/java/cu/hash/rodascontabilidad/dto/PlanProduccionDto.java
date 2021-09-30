@@ -1,5 +1,7 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.ActividadWithoutList;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.NormasConsumoWithoutList;
 import lombok.*;
 
 import java.util.List;
@@ -16,6 +18,6 @@ public class PlanProduccionDto {
     private UebDto ueb;
 
     //Lists by grouping
-    private List<ActividadDto> actividadDtoList;
-    private List<NormasConsumoDto> normasConsumoList;
+    private List<ActividadWithoutList> actividadDtoList;
+    private List<NormasConsumoWithoutList> normasConsumoList;
 }

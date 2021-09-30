@@ -1,17 +1,13 @@
-package cu.hash.rodascontabilidad.dto;
+package cu.hash.rodascontabilidad.dto.classesWhithoutCollections;
 
-import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.FichaCostoWhithoutList;
 import lombok.*;
-
-import java.util.List;
 
 @Data
 @AllArgsConstructor
-@Builder
 @NoArgsConstructor
 @EqualsAndHashCode
-public class NormasConsumoDto {
-
+@Builder
+public class NormasConsumoWithoutList {
     private long id;
     private Long idActividad;
     private Long idPlanProduccion;
@@ -24,10 +20,4 @@ public class NormasConsumoDto {
     private String nombreAprueba;
     private String cargoAprueba;
     private Double margenUtilidadPercentMt;
-
-    private ActividadDto actividad;
-    private PlanProduccionDto planProduccion;
-    private UebDto ueb;
-
-    private List<FichaCostoWhithoutList> fichaCostoList;
 }

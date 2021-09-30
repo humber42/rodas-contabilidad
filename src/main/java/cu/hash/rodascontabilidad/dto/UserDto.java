@@ -2,14 +2,16 @@ package cu.hash.rodascontabilidad.dto;
 
 import lombok.*;
 
-import java.sql.Date;
+import java.io.Serializable;
+import java.util.Date;
 
-@Data
+@Getter
+@Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@EqualsAndHashCode
-public class UserDto {
+public class UserDto implements Serializable {
+    private Long id;
     private String username;
     private String fullname;
     private String email;

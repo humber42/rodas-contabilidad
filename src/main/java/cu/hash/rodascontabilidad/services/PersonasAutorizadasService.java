@@ -26,6 +26,10 @@ public class PersonasAutorizadasService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+
+    public List<PersonasAutorizadasEntity> findAllWithoutMapping(){
+        return repository.findAll();
+    }
     public void deleteById(long id){
         repository.deleteById(id);
     }

@@ -30,6 +30,10 @@ public class OrdenTrabajoService {
     public List<OrdenTrabajoDto> findAll() {
         return repository.findAll().stream().map(this::mapper).collect(Collectors.toList());
     }
+
+    public List<OrdenTrabajoEntity> findAllWithoutMapping(){
+        return repository.findAll();
+    }
     public void deleteById(long id){
         repository.deleteById(id);
     }

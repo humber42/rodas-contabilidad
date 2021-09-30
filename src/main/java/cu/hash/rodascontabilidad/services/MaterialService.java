@@ -23,6 +23,10 @@ public class MaterialService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+
+    public List<MaterialEntity> findAllWithoutMapping(){
+        return repository.findAll();
+    }
     public void deleteById(long id){
         repository.deleteById(id);
     }

@@ -26,7 +26,7 @@ public class PersonasAutorizadasController {
         return new ResponseEntity<>(service.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping(WebResourceKeyConstants.Endpoints.GET_BY_ID+"/{idUsuario}")
+    @GetMapping(WebResourceKeyConstants.Endpoints.GET_BY_ID+"/usuario/{idUsuario}")
     public ResponseEntity<?> findPersonaAutorizadaByIdUsuario(@PathVariable String idUsuario){
         return new ResponseEntity<>(service.findByIdUsuario(idUsuario), HttpStatus.OK);
     }
