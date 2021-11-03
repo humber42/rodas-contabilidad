@@ -1,10 +1,10 @@
 spring:
   application:
-    name: rodas-contabilidad
+    name: rodas-costos
   datasource:
     username: postgres
     password: postgres
-    url: jdbc:postgresql://localhost:5432/rodas-contabilidad
+    url: jdbc:postgresql://localhost:5432/rodas-costos
     hikari:
       connection-timeout: 20000
       maximum-pool-size: 5
@@ -19,7 +19,7 @@ spring:
 server:
   port: 8082
   servlet:
-    context-path: /api/v1/rodas-contabilidad
+    context-path: /api/v1/rodas-costos
 
 eureka:
   instance:
