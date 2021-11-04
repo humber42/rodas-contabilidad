@@ -1,6 +1,7 @@
 package cu.hash.rodascontabilidad.services;
 
 import cu.hash.rodascontabilidad.dto.FichaCostoDto;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.FichaCostoWhithoutList;
 import cu.hash.rodascontabilidad.models.FichaCostoEntity;
 import cu.hash.rodascontabilidad.repository.FichaCostoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,10 @@ public class FichaCostoService {
         return repository.findById(id).map(this::mapper);
     }
 
+    public Optional<FichaCostoWhithoutList> findByIdToListResolver(Long id) {
+        return repository.findById(id).map(this::mapperToListResolvers);
+    }
+
     public List<FichaCostoDto> findAllByIdActividad(Long idActividad) {
         return repository.findAllByIdActividad(idActividad).stream().map(this::mapper).collect(Collectors.toList());
     }
@@ -54,6 +59,15 @@ public class FichaCostoService {
                 .actividad(actividadService.findById(entity.getIdActividad()).get())
                 .normasConsumoList(listResolvers.getNormaConsumoByFichaCosto(entity.getId()))
                 .ordenTrabajoList(listResolvers.getOrdenTrabajoByFichaCosto(entity.getId()))
+                .build();
+    }
+
+    private FichaCostoWhithoutList mapperToListResolvers(FichaCostoEntity entity) {
+        return FichaCostoWhithoutList.builder()
+                .id(entity.getId())
+                .idActividad(entity.getIdActividad())
+                .aprobada(entity.getAprobada())
+                .actividadWithoutList(actividadService.findByIdToListResolver(entity.getIdActividad()).get())
                 .build();
     }
 }

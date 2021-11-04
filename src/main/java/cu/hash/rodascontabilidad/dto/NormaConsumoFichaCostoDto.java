@@ -1,5 +1,7 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.FichaCostoWhithoutList;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.NormasConsumoWithoutList;
 import lombok.*;
 
 @Data
@@ -12,6 +14,6 @@ public class NormaConsumoFichaCostoDto {
     private Long idNormaConsumo;
     private Long idFichaCosto;
 
-    private NormasConsumoDto normasConsumo;
-    private FichaCostoDto fichaCosto;
+    private NormasConsumoWithoutList normasConsumo;
+    private FichaCostoWhithoutList fichaCosto;
 }

@@ -1,5 +1,7 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.ActividadWithoutList;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.PlanProduccionWithoutList;
 import lombok.*;
 
 @Data
@@ -12,8 +14,8 @@ public class UebActividadesPlanProduccionDto {
     private Long idPlanProduccion;
     private Long idActividad;
 
-    private PlanProduccionDto planProduccion;
-    private ActividadDto actividad;
+    private PlanProduccionWithoutList planProduccion;
+    private ActividadWithoutList actividad;
 
 
 }

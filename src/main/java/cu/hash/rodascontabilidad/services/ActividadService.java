@@ -1,6 +1,7 @@
 package cu.hash.rodascontabilidad.services;
 
 import cu.hash.rodascontabilidad.dto.ActividadDto;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.ActividadWithoutList;
 import cu.hash.rodascontabilidad.models.ActividadEntity;
 import cu.hash.rodascontabilidad.repository.ActividadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,10 @@ public class ActividadService {
         return repository.findById(id).map(this::mappearActividad);
     }
 
+    public Optional<ActividadWithoutList> findByIdToListResolver(long id) {
+        return repository.findById(id).map(this::mapperToListResolvers);
+    }
+
     public Optional<ActividadDto> findByIdAndCodigo(Long id, String codigo) {
         return repository.findByIdAndCodigo(id, codigo).map(this::mappearActividad);
     }
@@ -69,7 +74,18 @@ public class ActividadService {
                 .planProduccionList(listResolvers.getPlanProduccionActividad(entity.getId()))
                 .ordenTrabajoList(listResolvers.getOrdenTrabajoActividad(entity.getId()))
                 .build();
+    }
 
-
+    private ActividadWithoutList mapperToListResolvers(ActividadEntity entity) {
+        return ActividadWithoutList.builder()
+                .id(entity.getId())
+                .codigo(entity.getCodigo())
+                .idTipoActividad(entity.getIdTipoActividad())
+                .nombre(entity.getNombre())
+                .idUnidadMedida(entity.getIdUnidadMedida())
+                .descripcion(entity.getDescripcion())
+                .tipoActividad(tipoActividadService.findById(entity.getIdTipoActividad()).get())
+                .unidadMedida(unidadMedidaService.findById(entity.getIdUnidadMedida()).get())
+                .build();
     }
 }

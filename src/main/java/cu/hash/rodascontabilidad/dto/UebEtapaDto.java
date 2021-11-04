@@ -1,5 +1,7 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.EtapaWithoutList;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.UebWithoutList;
 import lombok.*;
 
 @EqualsAndHashCode
@@ -13,6 +15,6 @@ public class UebEtapaDto {
     private Long idUeb;
     private Long idEtapa;
 
-    private UebDto ueb;
-    private EtapaDto etapa;
+    private UebWithoutList ueb;
+    private EtapaWithoutList etapa;
 }

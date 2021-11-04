@@ -40,6 +40,9 @@ public class ListResolvers {
     private SubelementoGastoService subelementoGastoService;
 
     @Autowired
+    private UebService uebService;
+
+    @Autowired
     private UnidadMedidaService medidaService;
 
     //Actividades
@@ -48,7 +51,7 @@ public class ListResolvers {
      * Obtener lista plan de produccion dado un Id de actividad
      *
      * @param id Identifier activity
-     * @return List<Plan       produccion>
+     * @return List<Plan   produccion>
      */
     public List<PlanProduccionWithoutList> getPlanProduccionActividad(long id) {
         return uebActividadesPlanProduccionService.findAll()
@@ -211,18 +214,8 @@ public class ListResolvers {
     }
 
     public List<EtapaWithoutList> getEtapaByUeb(long id) {
-        return uebEtapaService.findAll()
-                .stream()
-                .filter(p -> p.getIdUeb() == id)
+        return uebEtapaService.findAll().stream().filter(p -> p.getIdUeb() == id)
                 .map(UebEtapaDto::getEtapa)
-                .map(entity->{
-                    return EtapaWithoutList.builder()
-                            .id(entity.getId())
-                            .nombre(entity.getNombre())
-                            .descripcion(entity.getDescripcion())
-                            .orden(entity.getOrden())
-                            .build();
-                })
                 .collect(Collectors.toList());
     }
 
@@ -423,17 +416,6 @@ public class ListResolvers {
                 .stream()
                 .filter(p -> p.getIdEtapa() == id)
                 .map(UebEtapaDto::getUeb)
-                .map(entity->{
-                    return UebWithoutList.builder()
-                            .id(entity.getId())
-                            .codigoUeb(entity.getCodigoUeb())
-                            .nombreUeb(entity.getNombreUeb())
-                            .descripcion(entity.getDescripcion())
-                            .coeficienteEstMn(entity.getCoeficienteEstMn())
-                            .coeficienteEstMlc(entity.getCoeficienteEstMlc())
-                            .pagoResultadoPercent(entity.getPagoResultadoPercent())
-                            .build();
-                })
                 .collect(Collectors.toList());
     }
 

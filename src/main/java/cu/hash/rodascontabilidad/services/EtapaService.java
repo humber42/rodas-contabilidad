@@ -1,6 +1,7 @@
 package cu.hash.rodascontabilidad.services;
 
 import cu.hash.rodascontabilidad.dto.EtapaDto;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.EtapaWithoutList;
 import cu.hash.rodascontabilidad.models.EtapaEntity;
 import cu.hash.rodascontabilidad.repository.EtapaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,10 @@ public class EtapaService {
         return repository.findById(id).map(this::mapper);
     }
 
+    public Optional<EtapaWithoutList> findByIdToListResolver(long id) {
+        return repository.findById(id).map(this::mapperToListResolvers);
+    }
+
     public EtapaDto findByNombre(String nombre) {
         return this.mapper(repository.findByNombre(nombre));
     }
@@ -54,6 +59,15 @@ public class EtapaService {
                 .descripcion(entity.getDescripcion())
                 .orden(entity.getOrden())
                 .uebList(resolvers.getUebByEtapa(entity.getId()))
+                .build();
+    }
+
+    private EtapaWithoutList mapperToListResolvers(EtapaEntity entity) {
+        return EtapaWithoutList.builder()
+                .id(entity.getId())
+                .nombre(entity.getNombre())
+                .descripcion(entity.getDescripcion())
+                .orden(entity.getOrden())
                 .build();
     }
 }

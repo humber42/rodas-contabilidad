@@ -1,5 +1,6 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.CargoWithoutList;
 import lombok.*;
 
 @AllArgsConstructor
@@ -13,5 +14,5 @@ public class PersonasAutorizadasDto {
     private long idCargo;
 
     private UserDto usuario;
-    private CargoDto cargoDto;
+    private CargoWithoutList cargoDto;
 }

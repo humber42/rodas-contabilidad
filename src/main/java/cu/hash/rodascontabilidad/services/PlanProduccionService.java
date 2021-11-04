@@ -1,6 +1,7 @@
 package cu.hash.rodascontabilidad.services;
 
 import cu.hash.rodascontabilidad.dto.PlanProduccionDto;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.PlanProduccionWithoutList;
 import cu.hash.rodascontabilidad.models.PlanProduccionEntity;
 import cu.hash.rodascontabilidad.repository.PlanProduccionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,10 @@ public class PlanProduccionService {
         return repository.findById(id).map(this::mapper);
     }
 
+    public Optional<PlanProduccionWithoutList> findByIdToListResolver(long id) {
+        return repository.findById(id).map(this::mapperToListResolvers);
+    }
+
     public PlanProduccionDto addPlanProduccion(PlanProduccionEntity planProduccionEntity) {
         return this.mapper(repository.save(planProduccionEntity));
     }
@@ -57,6 +62,14 @@ public class PlanProduccionService {
                 .ueb(uebService.findById(entity.getIdUeb()).get())
                 .actividadDtoList(listResolvers.getActividadesByPlanProduccion(entity.getId()))
                 .normasConsumoList(listResolvers.getNormasConsumoByPlanProduccion(entity.getId()))
+                .build();
+    }
+
+    private PlanProduccionWithoutList mapperToListResolvers(PlanProduccionEntity entity) {
+        return PlanProduccionWithoutList.builder()
+                .id(entity.getId())
+                .idUeb(entity.getIdUeb())
+                .ueb(uebService.findByIdToListResolver(entity.getIdUeb()).get())
                 .build();
     }
 }

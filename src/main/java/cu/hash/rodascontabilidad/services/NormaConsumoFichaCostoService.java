@@ -47,8 +47,8 @@ public class NormaConsumoFichaCostoService {
                 .id(entity.getId())
                 .idNormaConsumo(entity.getIdNormaConsumo())
                 .idFichaCosto(entity.getIdFichaCosto())
-                .fichaCosto(fichaCostoService.findById(entity.getIdFichaCosto()).get())
-                .normasConsumo(normasConsumoService.findById(entity.getIdNormaConsumo()).get())
+                .fichaCosto(fichaCostoService.findByIdToListResolver(entity.getIdFichaCosto()).get())
+                .normasConsumo(normasConsumoService.findByIdToListResolvers(entity.getIdNormaConsumo()).get())
                 .build();
     }
 }

@@ -44,8 +44,8 @@ public class UebActividadesPlanProduccionService {
                 .id(entity.getId())
                 .idActividad(entity.getIdActividad())
                 .idPlanProduccion(entity.getIdPlanProduccion())
-                .planProduccion(planProduccionService.findById(entity.getIdPlanProduccion()).get())
-                .actividad(actividadService.findById(entity.getIdActividad()).get())
+                .planProduccion(planProduccionService.findByIdToListResolver(entity.getIdPlanProduccion()).get())
+                .actividad(actividadService.findByIdToListResolver(entity.getIdActividad()).get())
                 .build();
     }
 }

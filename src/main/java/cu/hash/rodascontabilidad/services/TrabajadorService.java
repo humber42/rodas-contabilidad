@@ -74,8 +74,8 @@ public class TrabajadorService {
                 .nombre(entity.getNombre())
                 .idCargo(entity.getIdCargo())
                 .idUeb(entity.getIdUeb())
-                .cargoDto(cargoService.findById(entity.getIdCargo()).get())
-                .ueb(uebService.findById(entity.getIdUeb()).get())
+                .cargoDto(cargoService.findByIdToListResolvers(entity.getIdCargo()).get())
+                .ueb(uebService.findByIdToListResolver(entity.getIdUeb()).get())
                 .reporteDiarioLaboralList(listResolvers.getReporteDiarioLaboralByTrabajador(entity.getId()))
                 .build();
     }

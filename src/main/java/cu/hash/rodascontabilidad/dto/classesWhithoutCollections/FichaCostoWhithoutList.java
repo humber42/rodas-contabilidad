@@ -11,4 +11,5 @@ public class FichaCostoWhithoutList {
     private long id;
     private Long idActividad;
     private Boolean aprobada;
+    private ActividadWithoutList actividadWithoutList;
 }

@@ -1,6 +1,7 @@
 package cu.hash.rodascontabilidad.services;
 
 import cu.hash.rodascontabilidad.dto.CargoDto;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.CargoWithoutList;
 import cu.hash.rodascontabilidad.models.CargoEntity;
 import cu.hash.rodascontabilidad.repository.CargoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,10 @@ public class CargoService {
         return repository.findById(id).map(this::mapear);
     }
 
+    public Optional<CargoWithoutList> findByIdToListResolvers(long id) {
+        return repository.findById(id).map(this::mappearToListResolvers);
+    }
+
     public CargoDto findByNombre(String nombre) {
         return this.mapear(repository.findByNombre(nombre));
     }
@@ -57,6 +62,18 @@ public class CargoService {
                 .salarioMinimoMlc(entity.getSalarioMinimoMlc())
                 .salarioMaximoMlc(entity.getSalarioMaximoMlc())
                 .personasAutorizadasList(listResolvers.getPersonasAutorizadasByCargo(entity.getId()))
+                .build();
+    }
+
+    private CargoWithoutList mappearToListResolvers(CargoEntity entity) {
+        return CargoWithoutList.builder()
+                .id(entity.getId())
+                .nombre(entity.getNombre())
+                .descripcion(entity.getDescripcion())
+                .salarioBasicoMinimo(entity.getSalarioBasicoMinimo())
+                .salarioBasicoMaximo(entity.getSalarioBasicoMaximo())
+                .salarioMinimoMlc(entity.getSalarioMinimoMlc())
+                .salarioMaximoMlc(entity.getSalarioMaximoMlc())
                 .build();
     }
 }

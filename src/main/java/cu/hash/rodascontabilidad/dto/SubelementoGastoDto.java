@@ -1,5 +1,6 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.ElementoGastoWithoutList;
 import lombok.*;
 
 @Builder
@@ -15,6 +16,5 @@ public class SubelementoGastoDto {
     private Long idElemento;
     private String codigoSubelemento;
     private String descripcion;
-
-    private ElementoGastoDto elementoGasto;
+    private ElementoGastoWithoutList elementoGasto;
 }

@@ -1,6 +1,7 @@
 package cu.hash.rodascontabilidad.services;
 
 import cu.hash.rodascontabilidad.dto.ElementoGastoDto;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.ElementoGastoWithoutList;
 import cu.hash.rodascontabilidad.models.ElementoGastoEntity;
 import cu.hash.rodascontabilidad.repository.ElementoGastoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,10 @@ public class ElementoGastoService {
         return repository.findById(id).map(this::mapper);
     }
 
+    public Optional<ElementoGastoWithoutList> findByIdToListResolver(long id) {
+        return repository.findById(id).map(this::mapperToListResolvers);
+    }
+
     public ElementoGastoDto findByCodigoElemento(String codigo) {
         return this.mapper(repository.findByCodigoElemento(codigo));
     }
@@ -52,6 +57,17 @@ public class ElementoGastoService {
                 .descripcion(entity.getDescripcion())
                 .codigoElemento(entity.getCodigoElemento())
                 .subelementoGastoList(listResolvers.getSubElementoGastoByElemento(entity.getId()))
+                .build();
+    }
+
+    private ElementoGastoWithoutList mapperToListResolvers(ElementoGastoEntity entity) {
+        return ElementoGastoWithoutList.builder()
+                .id(entity.getId())
+                .elemento(entity.getElemento())
+                .mostrar(entity.getMostrar())
+                .orden(entity.getOrden())
+                .descripcion(entity.getDescripcion())
+                .codigoElemento(entity.getCodigoElemento())
                 .build();
     }
 }

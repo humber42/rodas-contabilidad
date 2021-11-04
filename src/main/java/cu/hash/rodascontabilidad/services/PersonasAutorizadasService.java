@@ -62,7 +62,7 @@ public class PersonasAutorizadasService {
                 .id(entity.getId())
                 .idUsuario(entity.getIdUsuario())
                 .idCargo(entity.getIdCargo())
-                .cargoDto(cargoService.findById(entity.getIdCargo()).get())
+                .cargoDto(cargoService.findByIdToListResolvers(entity.getIdCargo()).get())
                 .usuario(userInterface.searchById(Integer.valueOf(entity.getIdUsuario())))
                 .build();
     }

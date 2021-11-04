@@ -20,7 +20,12 @@ public class UebEtapaService {
     private EtapaService etapaService;
 
     public List<UebEtapaDto> findAll() {
-        return repository.findAll().stream().map(this::mapper).collect(Collectors.toList());
+        List<UebEtapaEntity> uebEtapaDtoList = repository.findAll();
+        return uebEtapaDtoList.stream().map(this::mapper).collect(Collectors.toList());
+    }
+
+    public List<UebEtapaEntity> findAllToListResolvers() {
+        return repository.findAll();
     }
     public void deleteById(long id){
         repository.deleteById(id);
@@ -43,8 +48,8 @@ public class UebEtapaService {
                 .id(entity.getId())
                 .idUeb(entity.getIdUeb())
                 .idEtapa(entity.getIdEtapa())
-                .ueb(uebService.findById(entity.getIdUeb()).get())
-                .etapa(etapaService.findById(entity.getIdEtapa()).get())
+                .ueb(uebService.findByIdToListResolver(entity.getIdUeb()).get())
+                .etapa(etapaService.findByIdToListResolver(entity.getIdEtapa()).get())
                 .build();
     }
 }

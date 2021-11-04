@@ -56,7 +56,7 @@ public class SubelementoGastoService {
                 .idElemento(entity.getIdElemento())
                 .codigoSubelemento(entity.getCodigoSubelemento())
                 .descripcion(entity.getDescripcion())
-                .elementoGasto(elementoGastoService.findById(entity.getIdElemento()).get())
+                .elementoGasto(elementoGastoService.findByIdToListResolver(entity.getIdElemento()).get())
                 .build();
     }
 }

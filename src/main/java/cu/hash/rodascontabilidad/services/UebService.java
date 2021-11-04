@@ -1,6 +1,7 @@
 package cu.hash.rodascontabilidad.services;
 
 import cu.hash.rodascontabilidad.dto.UebDto;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.UebWithoutList;
 import cu.hash.rodascontabilidad.models.UebEntity;
 import cu.hash.rodascontabilidad.repository.UEBRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,10 @@ public class UebService {
 
     public Optional<UebDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);
+    }
+
+    public Optional<UebWithoutList> findByIdToListResolver(long id) {
+        return repository.findById(id).map(this::mapperToListResolver);
     }
 
     public UebDto findByCodigoUeb(String codigo) {
@@ -61,6 +66,18 @@ public class UebService {
                 .ordenTrabajoList(listResolvers.getOrdenTrabajoByUeb(entity.getId()))
                 .trabajadorList(listResolvers.getTrabajadorByUeb(entity.getId()))
                 .etapaList(listResolvers.getEtapaByUeb(entity.getId()))
+                .build();
+    }
+
+    private UebWithoutList mapperToListResolver(UebEntity entity) {
+        return UebWithoutList.builder()
+                .id(entity.getId())
+                .codigoUeb(entity.getCodigoUeb())
+                .nombreUeb(entity.getNombreUeb())
+                .descripcion(entity.getDescripcion())
+                .coeficienteEstMn(entity.getCoeficienteEstMn())
+                .coeficienteEstMlc(entity.getCoeficienteEstMlc())
+                .pagoResultadoPercent(entity.getPagoResultadoPercent())
                 .build();
     }
 }
