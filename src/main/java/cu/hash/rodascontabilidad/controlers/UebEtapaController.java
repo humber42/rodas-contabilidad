@@ -40,4 +40,11 @@ public class UebEtapaController {
     public void deleteByID(@PathVariable Long id){
         service.deleteById(id);
     }
+
+    @DeleteMapping(value = WebResourceKeyConstants.Endpoints.DELETE, params = {"idUeb", "idEtapa"})
+    @ResponseBody
+    public void deleteByIdUebAndIdEtapa(@RequestParam("idUeb") Long idUeb,
+                                        @RequestParam("idEtapa") Long idEtapa){
+        service.deleteByIdUebAndIdEtapa(idUeb, idEtapa);
+    }
 }

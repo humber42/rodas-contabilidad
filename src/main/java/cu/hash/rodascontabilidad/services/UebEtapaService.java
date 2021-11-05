@@ -43,6 +43,14 @@ public class UebEtapaService {
         return this.mapper(repository.saveAndFlush(uebEtapaEntity));
     }
 
+    public void deleteByIdUebAndIdEtapa(Long idUeb, Long idEtapa){
+       Optional<UebEtapaEntity> etapaEntity= repository.getByIdEtapaAndIdUeb(idEtapa,idUeb);
+       if(etapaEntity.isPresent()) {
+           this.deleteById(etapaEntity.get().getId());
+       }
+
+    }
+
     private UebEtapaDto mapper(UebEtapaEntity entity) {
         return UebEtapaDto.builder()
                 .id(entity.getId())
