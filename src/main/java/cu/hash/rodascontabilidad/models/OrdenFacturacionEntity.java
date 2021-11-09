@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "orden_facturacion", schema = "public", catalog = "rodas-contabilidad")
+@Table(name = "orden_facturacion", schema = "public", catalog = "rodas-costos")
 public class OrdenFacturacionEntity {
     private long id;
     private String codigo;

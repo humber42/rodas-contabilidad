@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "coeficiente_gastos_bancarios", schema = "public", catalog = "rodas-contabilidad")
+@Table(name = "coeficiente_gastos_bancarios", schema = "public", catalog = "rodas-costos")
 public class CoeficienteGastosBancariosEntity {
     private long id;
     private Double coeficienteGastoTotalMn;

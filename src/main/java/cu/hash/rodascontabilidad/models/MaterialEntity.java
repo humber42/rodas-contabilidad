@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "material", schema = "public", catalog = "rodas-contabilidad")
+@Table(name = "material", schema = "public", catalog = "rodas-costos")
 public class MaterialEntity {
     private long id;
     private Date fecha;
@@ -104,6 +104,4 @@ public class MaterialEntity {
     public int hashCode() {
         return Objects.hash(id, fecha, importeMn, importeMlc, noVentaSalida, total, idOrdenTrabajo);
     }
-
-
 }

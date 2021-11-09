@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "reporte_diario_laboral", schema = "public", catalog = "rodas-contabilidad")
+@Table(name = "reporte_diario_laboral", schema = "public", catalog = "rodas-costos")
 public class ReporteDiarioLaboralEntity {
     private long id;
     private Long idTrabajador;

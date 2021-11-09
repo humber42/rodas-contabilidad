@@ -14,7 +14,7 @@ public class CategoriaAgrupacionIndirectaElementoGastoDto {
     private Long orden;
 
     //Obejct to load when this entity is load
-    private CategoriaAgrupacionIndirectaDto categoriaAgrupacionIndirecta;
+    private CategoriaAgrupacionDto categoriaAgrupacionIndirecta;
     private ElementoGastoDto elementoGasto;
 
 }

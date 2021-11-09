@@ -6,7 +6,6 @@ public class WebResourceKeyConstants {
     public static final String CATEGORIA_AGRUPACION_API = "/categoria-agrupacion";
     public static final String CATEGORIA_AGRUPACION_ELEMENTO_GASTO_API =
             "/categoria-agrupacion-elemento-gasto";
-    public static final String CATEGORIA_AGRUPACION_INDIRECTA_API = "/categoria-agrupacion-indirecta";
     public static final String CATEGORIA_AGRUPACION_INDIRECTA_ELEMENTO_GASTO_API
             = "/categoria-agrupacion-indirecta-elemento-gasto";
     public static final String CATEGORIA_AGRUPACION_INDIRECTA_SUBELEMENTO_GASTO_API

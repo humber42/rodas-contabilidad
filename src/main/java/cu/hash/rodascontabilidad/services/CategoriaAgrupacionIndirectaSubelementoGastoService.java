@@ -16,7 +16,7 @@ public class CategoriaAgrupacionIndirectaSubelementoGastoService {
     private CategoriaAgrupacionIndirectaSubelementoGastoRepository repository;
 
     @Autowired
-    private CategoriaAgrupacionIndirectaService categoriaAgrupacionIndirectaService;
+    private CategoriaAgrupacionService categoriaAgrupacionIndirectaService;
     @Autowired
     private SubelementoGastoService subelementoGastoService;
 

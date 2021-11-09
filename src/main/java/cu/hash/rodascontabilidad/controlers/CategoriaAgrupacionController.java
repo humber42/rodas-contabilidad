@@ -21,6 +21,16 @@ public class CategoriaAgrupacionController {
         return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(WebResourceKeyConstants.Endpoints.GET_ALL+"/direct")
+    public ResponseEntity<?> findAllDirectCategories() {
+        return new ResponseEntity<>(service.findAllDirectCategories(), HttpStatus.OK);
+    }
+
+    @GetMapping(WebResourceKeyConstants.Endpoints.GET_ALL+"/indirect")
+    public ResponseEntity<?> findAllIndirectCategories() {
+        return new ResponseEntity<>(service.findAllIndirectCategories(), HttpStatus.OK);
+    }
+
     @GetMapping(WebResourceKeyConstants.Endpoints.GET_BY_ID+"/{id}")
     public ResponseEntity<?> findCategoriaAgrupacionById(@PathVariable Long id){
         return new ResponseEntity<>(service.findById(id), HttpStatus.OK);

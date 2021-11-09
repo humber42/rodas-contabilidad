@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-    <persistence-unit name="NewPersistenceUnit">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <persistence-unit name="persistenceUnit">
         <class>cu.hash.rodascontabilidad.models.ActividadEntity</class>
         <class>cu.hash.rodascontabilidad.models.CargoEntity</class>
         <class>cu.hash.rodascontabilidad.models.CategoriaAgrupacionEntity</class>
         <class>cu.hash.rodascontabilidad.models.CategoriaAgrupacionElementoGastoEntity</class>
-        <class>cu.hash.rodascontabilidad.models.CategoriaAgrupacionIndirectaEntity</class>
         <class>cu.hash.rodascontabilidad.models.CategoriaAgrupacionIndirectaElementoGastoEntity</class>
         <class>cu.hash.rodascontabilidad.models.CategoriaAgrupacionIndirectaSubelementoGastoEntity</class>
         <class>cu.hash.rodascontabilidad.models.ClienteEntity</class>
@@ -37,17 +35,18 @@
         <class>cu.hash.rodascontabilidad.models.TipoGastoIndirectoEntity</class>
         <class>cu.hash.rodascontabilidad.models.TrabajadorEntity</class>
         <class>cu.hash.rodascontabilidad.models.UebEntity</class>
+        <class>cu.hash.rodascontabilidad.models.UebActividadesPlanProduccionEntity</class>
         <class>cu.hash.rodascontabilidad.models.UebEtapaEntity</class>
         <class>cu.hash.rodascontabilidad.models.UnidadMedidaEntity</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/rodas-contabilidad"/>
+            <property name="toplink.jdbc.url" value="jdbc:postgresql://localhost:5432/rodas-costos"/>
+            <property name="toplink.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/rodas-costos"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-            <property name="hibernate.connection.username" value=""/>
-            <property name="hibernate.connection.password" value=""/>
-            <property name="hibernate.archive.autodetection" value="class"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-            <property name="hbm2ddl.auto" value="update"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:postgresql://localhost:5432/rodas-costos"/>
+            <property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/rodas-costos"/>
+            <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
         </properties>
     </persistence-unit>
 </persistence>

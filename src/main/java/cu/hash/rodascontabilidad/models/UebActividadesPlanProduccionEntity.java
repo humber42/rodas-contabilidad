@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ueb_actividades_plan_produccion", schema = "public", catalog = "rodas-contabilidad")
+@Table(name = "ueb_actividades_plan_produccion", schema = "public", catalog = "rodas-costos")
 public class UebActividadesPlanProduccionEntity {
     private long id;
     private Long idPlanProduccion;

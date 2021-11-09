@@ -13,4 +13,5 @@ public class CategoriaAgrupacionDto {
     private String descripcion;
     private long orden;
     private Boolean mostrarFichaCosto;
+    private String tipoCategoria;
 }

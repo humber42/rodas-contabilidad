@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface UebEtapaRepository extends JpaRepository<UebEtapaEntity, Long> {
-    Optional<UebEtapaEntity> getByIdEtapaAndIdUeb(long idEtapa,long idUeb);
+    Optional<UebEtapaEntity> getByIdEtapaAndIdUeb(long idEtapa, long idUeb);
 }

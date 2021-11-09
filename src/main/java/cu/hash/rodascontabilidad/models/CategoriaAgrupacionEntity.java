@@ -4,13 +4,14 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "categoria_agrupacion", schema = "public", catalog = "rodas-contabilidad")
+@Table(name = "categoria_agrupacion", schema = "public", catalog = "rodas-costos")
 public class CategoriaAgrupacionEntity {
     private long id;
     private String nombre;
     private String descripcion;
     private long orden;
     private Boolean mostrarFichaCosto;
+    private String tipoCategoria;
 
     @Id
     @Column(name = "id")
@@ -63,6 +64,16 @@ public class CategoriaAgrupacionEntity {
         this.mostrarFichaCosto = mostrarFichaCosto;
     }
 
+    @Basic
+    @Column(name = "tipo_categoria")
+    public String getTipoCategoria() {
+        return tipoCategoria;
+    }
+
+    public void setTipoCategoria(String tipoCategoria) {
+        this.tipoCategoria = tipoCategoria;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -72,11 +83,12 @@ public class CategoriaAgrupacionEntity {
                 orden == that.orden &&
                 Objects.equals(nombre, that.nombre) &&
                 Objects.equals(descripcion, that.descripcion) &&
-                Objects.equals(mostrarFichaCosto, that.mostrarFichaCosto);
+                Objects.equals(mostrarFichaCosto, that.mostrarFichaCosto) &&
+                Objects.equals(tipoCategoria, that.tipoCategoria);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, descripcion, orden, mostrarFichaCosto);
+        return Objects.hash(id, nombre, descripcion, orden, mostrarFichaCosto, tipoCategoria);
     }
 }

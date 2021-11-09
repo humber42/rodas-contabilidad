@@ -17,7 +17,7 @@ public class CategoriaAgrupacionIndirectaElementoGastoService {
     @Autowired
     private ElementoGastoService elementoGastoService;
     @Autowired
-    private CategoriaAgrupacionIndirectaService categoriaAgrupacionIndirectaService;
+    private CategoriaAgrupacionService categoriaAgrupacionIndirectaService;
 
     public List<CategoriaAgrupacionIndirectaElementoGastoEntity> findAll(){
         return repository.findAll();

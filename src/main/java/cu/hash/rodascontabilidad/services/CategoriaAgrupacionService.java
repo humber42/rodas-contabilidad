@@ -21,6 +21,21 @@ public class CategoriaAgrupacionService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+
+    public List<CategoriaAgrupacionDto> findAllDirectCategories(){
+        return repository.findAllByTipoCategoria("Directa")
+                .stream()
+                .map(this::mapper)
+                .collect(Collectors.toList());
+    }
+
+    public List<CategoriaAgrupacionDto> findAllIndirectCategories(){
+        return repository.findAllByTipoCategoria("Indirecta")
+                .stream()
+                .map(this::mapper)
+                .collect(Collectors.toList());
+    }
+
     public void deleteById(long id){
         repository.deleteById(id);
     }
@@ -52,6 +67,7 @@ public class CategoriaAgrupacionService {
                 .descripcion(entity.getDescripcion())
                 .orden(entity.getOrden())
                 .mostrarFichaCosto(entity.getMostrarFichaCosto())
+                .tipoCategoria(entity.getTipoCategoria())
                 .build();
     }
 }

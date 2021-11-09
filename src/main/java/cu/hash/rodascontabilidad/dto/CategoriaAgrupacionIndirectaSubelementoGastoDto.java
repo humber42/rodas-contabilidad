@@ -14,7 +14,7 @@ public class CategoriaAgrupacionIndirectaSubelementoGastoDto {
     private Long idSubelementoGasto;
     private Long orden;
 
-    private CategoriaAgrupacionIndirectaDto categoriaAgrupacionIndirecta;
+    private CategoriaAgrupacionDto categoriaAgrupacionIndirecta;
     private SubelementoGastoDto subelementoGasto;
 
 }

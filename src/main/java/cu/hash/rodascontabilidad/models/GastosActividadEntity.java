@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "gastos_actividad", schema = "public", catalog = "rodas-contabilidad")
+@Table(name = "gastos_actividad", schema = "public", catalog = "rodas-costos")
 public class GastosActividadEntity {
     private long id;
     private Long idGastoDirecto;
