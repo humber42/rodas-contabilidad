@@ -1,5 +1,7 @@
 package cu.hash.rodascontabilidad.services;
 
+import cu.hash.rodascontabilidad.controlers.especialRequest.MaterialEspecial;
+import cu.hash.rodascontabilidad.controlers.especialRequest.OrdenTrabajoMaterialRequest;
 import cu.hash.rodascontabilidad.dto.MaterialDto;
 import cu.hash.rodascontabilidad.models.MaterialEntity;
 import cu.hash.rodascontabilidad.repository.MaterialRepository;
@@ -41,6 +43,21 @@ public class MaterialService {
 
     public MaterialDto updateOrDeleteMaterial(MaterialEntity materialEntity) {
         return this.mapper(repository.saveAndFlush(materialEntity));
+    }
+
+    public void saveEspecialMaterial(OrdenTrabajoMaterialRequest request){
+        if(!request.getEspecialList().isEmpty()){
+            for(MaterialEspecial materialDto: request.getEspecialList()){
+                MaterialEntity entity = new MaterialEntity();
+                entity.setFecha(materialDto.getFecha());
+                entity.setImporteMn(materialDto.getImporteMN());
+                entity.setImporteMlc(materialDto.getImporteMLC());
+                entity.setNoVentaSalida(materialDto.getNoVentaSalida());
+                entity.setTotal(materialDto.getTotal());
+                entity.setIdOrdenTrabajo(request.getOrdenTrabajoId());
+                this.addMaterial(entity);
+            }
+        }
     }
 
     private MaterialDto mapper(MaterialEntity entity) {

@@ -1,6 +1,7 @@
 package cu.hash.rodascontabilidad.controlers;
 
 import cu.hash.rodascontabilidad.constants.WebResourceKeyConstants;
+import cu.hash.rodascontabilidad.controlers.especialRequest.OrdenTrabajoReporteDiarioRequest;
 import cu.hash.rodascontabilidad.models.ReporteDiarioLaboralEntity;
 import cu.hash.rodascontabilidad.services.ReporteDiarioLaboralService;
 import io.swagger.annotations.Api;
@@ -44,5 +45,10 @@ public class ReporteDiarioLaboralController {
     @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
     public void deleteByID(@PathVariable Long id){
         service.deleteById(id);
+    }
+
+    @PostMapping(WebResourceKeyConstants.Endpoints.SAVE+"/especial")
+    public void saveEspecial(@RequestBody OrdenTrabajoReporteDiarioRequest request){
+        service.saveEspecialReporte(request);
     }
 }

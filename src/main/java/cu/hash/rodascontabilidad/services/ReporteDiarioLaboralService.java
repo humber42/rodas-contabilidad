@@ -1,5 +1,7 @@
 package cu.hash.rodascontabilidad.services;
 
+import cu.hash.rodascontabilidad.controlers.especialRequest.OrdenTrabajoReporteDiarioRequest;
+import cu.hash.rodascontabilidad.controlers.especialRequest.ReporteDiarioLaboralEspecial;
 import cu.hash.rodascontabilidad.dto.ReporteDiarioLaboralDto;
 import cu.hash.rodascontabilidad.models.ReporteDiarioLaboralEntity;
 import cu.hash.rodascontabilidad.repository.ReporteDiarioLaboralRepository;
@@ -44,6 +46,20 @@ public class ReporteDiarioLaboralService {
 
     public ReporteDiarioLaboralDto updateOrDeleteReporteDiarioLaboral(ReporteDiarioLaboralEntity reporteDiarioLaboralEntity) {
         return this.mapper(repository.saveAndFlush(reporteDiarioLaboralEntity));
+    }
+
+    public void saveEspecialReporte(OrdenTrabajoReporteDiarioRequest request){
+        if(!request.getEspecialList().isEmpty()){
+            for (ReporteDiarioLaboralEspecial reporte:
+                    request.getEspecialList() ) {
+                ReporteDiarioLaboralEntity entity = new ReporteDiarioLaboralEntity();
+                entity.setIdTrabajador(reporte.getTrabajador().getId());
+                entity.setFecha(reporte.getFecha());
+                entity.setCantHoras(reporte.getCantHoras());
+                entity.setIdOrdenTrabajo(request.getOrdenTrabajoId());
+                this.addReporteDiarioLaboral(entity);
+            }
+        }
     }
 
     private ReporteDiarioLaboralDto mapper(ReporteDiarioLaboralEntity entity) {

@@ -42,5 +42,4 @@ public class OrdenTrabajoDto {
     //Lists by grouping
     private List<MaterialWithoutList> materialList;
     private List<OrdenFacturacionWithoutList> ordenFacturacionList;
-
 }
