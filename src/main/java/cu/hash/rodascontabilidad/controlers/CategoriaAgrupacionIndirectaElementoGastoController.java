@@ -42,4 +42,11 @@ public class CategoriaAgrupacionIndirectaElementoGastoController {
     public void deleteByID(@PathVariable Long id){
         service.deleteById(id);
     }
+
+    @DeleteMapping(value = WebResourceKeyConstants.Endpoints.DELETE, params = {"idCategoria", "idElemento"})
+    @ResponseBody
+    public void deleteByIdCategoriaAndIdElemento(@RequestParam("idCategoria") Long idCategoria,
+                                                 @RequestParam("idElemento") Long idElemento){
+        service.deleteByIdCategoriaAndIdElemento(idCategoria, idElemento);
+    }
 }

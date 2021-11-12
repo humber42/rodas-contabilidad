@@ -34,6 +34,14 @@ public class CategoriaAgrupacionIndirectaElementoGastoService {
         return repository.save(categoriaAgrupacionIndirectaElementoGastoEntity);
     }
 
+    public void deleteByIdCategoriaAndIdElemento(Long idCat, Long idElem){
+        Optional<CategoriaAgrupacionIndirectaElementoGastoEntity> categoriaEntity=
+                repository.getByIdCategoriaAgrupacionIndirectaAndIdElementoGasto(idCat, idElem);
+        if(categoriaEntity.isPresent()) {
+            this.deleteById(categoriaEntity.get().getId());
+        }
+    }
+
     public CategoriaAgrupacionIndirectaElementoGastoEntity updateOrDeleteCategoriaAgrupacionIndirectaElementoGasto(CategoriaAgrupacionIndirectaElementoGastoEntity categoriaAgrupacionIndirectaElementoGastoEntity){
         return repository.saveAndFlush(categoriaAgrupacionIndirectaElementoGastoEntity);
     }
