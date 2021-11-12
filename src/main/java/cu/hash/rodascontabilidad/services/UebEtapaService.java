@@ -48,7 +48,6 @@ public class UebEtapaService {
        if(etapaEntity.isPresent()) {
            this.deleteById(etapaEntity.get().getId());
        }
-
     }
 
     private UebEtapaDto mapper(UebEtapaEntity entity) {

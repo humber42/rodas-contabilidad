@@ -30,6 +30,14 @@ public class CategoriaAgrupacionElementoGastoService {
         repository.deleteById(id);
     }
 
+    public void deleteByIdCategoriaAndIdElemento(Long idCat, Long idElem){
+        Optional<CategoriaAgrupacionElementoGastoEntity> categoriaEntity=
+                repository.getByIdCategoriaAgrupacionAndIdElementoGasto(idCat, idElem);
+        if(categoriaEntity.isPresent()) {
+            this.deleteById(categoriaEntity.get().getId());
+        }
+    }
+
     public Optional<CategoriaAgrupacionElementoGastoDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);
     }
@@ -47,9 +55,8 @@ public class CategoriaAgrupacionElementoGastoService {
                 .id(entity.getId())
                 .idCategoriaAgrupacion(entity.getIdCategoriaAgrupacion())
                 .idElementoGasto(entity.getIdElementoGasto())
-                .categoriaAgrupacion(categoriaAgrupacionService.findById(entity.getIdCategoriaAgrupacion()).get())
-                .elementoGasto(elementoGastoService.findById(entity.getIdElementoGasto()).get())
+                .categoriaAgrupacion(categoriaAgrupacionService.findByIdToListResolver(entity.getIdCategoriaAgrupacion()).get())
+                .elementoGasto(elementoGastoService.findByIdToListResolver(entity.getIdElementoGasto()).get())
                 .build();
-
     }
 }

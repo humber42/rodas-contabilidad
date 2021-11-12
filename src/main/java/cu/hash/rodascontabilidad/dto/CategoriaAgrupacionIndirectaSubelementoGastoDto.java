@@ -1,6 +1,8 @@
 package cu.hash.rodascontabilidad.dto;
 
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.CategoriaAgrupacionWithoutList;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.SubElementoGastoWithoutList;
 import lombok.*;
 
 @Data
@@ -14,7 +16,7 @@ public class CategoriaAgrupacionIndirectaSubelementoGastoDto {
     private Long idSubelementoGasto;
     private Long orden;
 
-    private CategoriaAgrupacionDto categoriaAgrupacionIndirecta;
-    private SubelementoGastoDto subelementoGasto;
+    private CategoriaAgrupacionWithoutList categoriaAgrupacionIndirecta;
+    private SubElementoGastoWithoutList subelementoGasto;
 
 }

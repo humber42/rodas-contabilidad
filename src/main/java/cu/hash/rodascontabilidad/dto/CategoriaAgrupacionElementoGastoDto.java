@@ -1,5 +1,7 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.CategoriaAgrupacionWithoutList;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.ElementoGastoWithoutList;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +17,6 @@ public class CategoriaAgrupacionElementoGastoDto {
     private Long idElementoGasto;
 
     //Object to map when this object is loaded
-    private CategoriaAgrupacionDto categoriaAgrupacion;
-    private ElementoGastoDto elementoGasto;
+    private CategoriaAgrupacionWithoutList categoriaAgrupacion;
+    private ElementoGastoWithoutList elementoGasto;
 }

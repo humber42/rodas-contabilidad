@@ -24,6 +24,11 @@ public class ElementoGastoService {
                 .map(this::mapper)
                 .collect(Collectors.toList());
     }
+
+    public List<ElementoGastoEntity> findAllWithoutMapping(){
+        return repository.findAll();
+    }
+
     public void deleteById(long id){
         repository.deleteById(id);
     }

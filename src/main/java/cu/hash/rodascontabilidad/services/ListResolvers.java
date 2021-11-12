@@ -1,8 +1,6 @@
 package cu.hash.rodascontabilidad.services;
 
-import cu.hash.rodascontabilidad.dto.NormaConsumoFichaCostoDto;
-import cu.hash.rodascontabilidad.dto.UebActividadesPlanProduccionDto;
-import cu.hash.rodascontabilidad.dto.UebEtapaDto;
+import cu.hash.rodascontabilidad.dto.*;
 import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +36,10 @@ public class ListResolvers {
     private ReporteDiarioLaboralService reporteDiarioLaboralService;
     @Autowired
     private SubelementoGastoService subelementoGastoService;
+    @Autowired
+    private CategoriaAgrupacionElementoGastoService categoriaAgrupacionElementoGastoService;
+    @Autowired
+    private CategoriaAgrupacionIndirectaSubelementoGastoService categoriaAgrupacionIndirectaSubelementoGastoService;
 
     @Autowired
     private UebService uebService;
@@ -392,6 +394,23 @@ public class ListResolvers {
     }
 
     //ElementoGasto
+    public List<ElementoGastoWithoutList> getElementoGastoByCategoriaAgrupacion(long id){
+        List<CategoriaAgrupacionElementoGastoDto> lista = categoriaAgrupacionElementoGastoService.findAll();
+        List<ElementoGastoWithoutList> result = lista.stream()
+                .filter(p -> p.getIdCategoriaAgrupacion() == id)
+                .map(CategoriaAgrupacionElementoGastoDto::getElementoGasto)
+                .collect(Collectors.toList()) ;
+        return result;
+    }
+
+    public List<SubElementoGastoWithoutList> getSubElementoGastoByCategoriaAgrupacion(long id){
+        return categoriaAgrupacionIndirectaSubelementoGastoService.findAll()
+                .stream()
+                .filter(p -> p.getIdCategoriaAgrupacionIndirecta()==id)
+                .map(CategoriaAgrupacionIndirectaSubelementoGastoDto::getSubelementoGasto)
+                .collect(Collectors.toList());
+    }
+
     public List<SubElementoGastoWithoutList> getSubElementoGastoByElemento(long id) {
         return subelementoGastoService.findAllWithoutMapping()
                 .stream()

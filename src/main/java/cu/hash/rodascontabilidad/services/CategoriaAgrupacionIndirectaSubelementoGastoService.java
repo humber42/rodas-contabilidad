@@ -48,8 +48,8 @@ public class CategoriaAgrupacionIndirectaSubelementoGastoService {
                 .idCategoriaAgrupacionIndirecta(entity.getIdCategoriaAgrupacionIndirecta())
                 .idSubelementoGasto(entity.getIdSubelementoGasto())
                 .orden(entity.getOrden())
-                .categoriaAgrupacionIndirecta(categoriaAgrupacionIndirectaService.findById(entity.getIdCategoriaAgrupacionIndirecta()).get())
-                .subelementoGasto(subelementoGastoService.findById(entity.getIdSubelementoGasto()).get())
+                .categoriaAgrupacionIndirecta(categoriaAgrupacionIndirectaService.findByIdToListResolver(entity.getIdCategoriaAgrupacionIndirecta()).get())
+                .subelementoGasto(subelementoGastoService.findByIdToListResolver(entity.getIdSubelementoGasto()).get())
                 .build();
     }
 }
