@@ -38,6 +38,13 @@ public class NormaConsumoFichaCostoService {
         return this.mapper(repository.save(normaConsumoFichaCostoEntity));
     }
 
+    public void deleteNormaConsumoFichaCostoByIds(long idNormaConsumo, long idFichaCosto) {
+        repository.getByIdNormaConsumoAndIdFichaCosto(idNormaConsumo, idFichaCosto).ifPresent(
+                p ->
+                        this.deleteById(p.getId())
+        );
+    }
+
     public NormaConsumoFichaCostoDto updateOrDeleteNormaConsumoFichaCosto(NormaConsumoFichaCostoEntity normaConsumoFichaCostoEntity) {
         return this.mapper(repository.saveAndFlush(normaConsumoFichaCostoEntity));
     }

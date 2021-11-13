@@ -36,6 +36,11 @@ public class OrdenTrabajoController {
         return new ResponseEntity<>(service.updateOrDeleteOrdenTrabajo(orden), HttpStatus.OK);
     }
 
+    @PutMapping(value = WebResourceKeyConstants.Endpoints.UPDATE + "/close", params = "id")
+    public void openOrClose(@RequestParam long id) {
+        service.closeOrOpenOrdenTrabajo(id);
+    }
+
     @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
     public void deleteByID(@PathVariable Long id){
         service.deleteById(id);

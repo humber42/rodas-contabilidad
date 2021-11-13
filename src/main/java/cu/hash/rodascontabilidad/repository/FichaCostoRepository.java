@@ -10,4 +10,5 @@ import java.util.List;
 public interface FichaCostoRepository extends JpaRepository<FichaCostoEntity, Long> {
     List<FichaCostoEntity> findAllByIdActividad(Long idActividad);
     FichaCostoEntity findByIdAndIdActividad(Long id, Long idActividad);
+
 }

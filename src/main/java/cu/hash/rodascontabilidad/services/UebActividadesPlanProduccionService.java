@@ -24,6 +24,13 @@ public class UebActividadesPlanProduccionService {
         return repository.findAll().stream().map(this::mapper).collect(Collectors.toList());
     }
 
+    public void deleteByIdActividadAndIdPlanProduccion(long idActiviad, long idPlanProduccion) {
+        Optional<UebActividadesPlanProduccionEntity> entity = repository.getByIdActividadAndIdPlanProduccion(idActiviad, idPlanProduccion);
+        entity.ifPresent(p ->
+                this.deleteById(p.getId())
+        );
+    }
+
     public Optional<UebActividadesPlanProduccionDto> findById(Long id) {
         return repository.findById(id).map(this::mapper);
     }

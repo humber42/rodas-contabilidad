@@ -40,4 +40,9 @@ public class UebActividadesPlanProduccionController {
     public void deleteByID(@PathVariable Long id){
         service.deleteById(id);
     }
+
+    @DeleteMapping(value = WebResourceKeyConstants.Endpoints.DELETE + "/especial", params = {"idActividad", "idPlanProduccion"})
+    public void deleteByIdActividadAndIdPlanProduccion(@RequestParam("idActividad") long idActividad, @RequestParam("idPlanProduccion") long idPlanProduccion) {
+        service.deleteByIdActividadAndIdPlanProduccion(idActividad, idPlanProduccion);
+    }
 }

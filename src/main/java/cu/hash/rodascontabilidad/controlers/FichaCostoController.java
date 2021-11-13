@@ -36,6 +36,11 @@ public class FichaCostoController {
         return new ResponseEntity<>(service.updateOrDeleteFichaCosto(fichaCosto), HttpStatus.OK);
     }
 
+    @PutMapping(value = WebResourceKeyConstants.Endpoints.UPDATE + "/aproove", params = {"id"})
+    public ResponseEntity<?> aprooveOrDisaproove(long id) {
+        return new ResponseEntity<>(service.approveOrDisaprove(id), HttpStatus.OK);
+    }
+
     @DeleteMapping(WebResourceKeyConstants.Endpoints.DELETE_BY_ID+"/{id}")
     public void deleteByID(@PathVariable Long id){
         service.deleteById(id);

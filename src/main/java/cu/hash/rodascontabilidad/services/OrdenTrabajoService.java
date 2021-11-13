@@ -50,6 +50,15 @@ public class OrdenTrabajoService {
         return this.mapper(repository.saveAndFlush(ordenTrabajoEntity));
     }
 
+    public void closeOrOpenOrdenTrabajo(long id) {
+        repository.findById(id)
+                .ifPresent(p -> {
+                            p.setCerrada(!p.getCerrada());
+                            this.updateOrDeleteOrdenTrabajo(p);
+                        }
+                );
+    }
+
     private OrdenTrabajoDto mapper(OrdenTrabajoEntity entity) {
         return OrdenTrabajoDto.builder()
                 .id(entity.getId())

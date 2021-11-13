@@ -51,6 +51,15 @@ public class FichaCostoService {
         return this.mapper(repository.saveAndFlush(fichaCostoEntity));
     }
 
+    public FichaCostoDto approveOrDisaprove(long id) {
+        Optional<FichaCostoEntity> entity = repository.findById(id);
+        if (entity.isPresent()) {
+            entity.get().setAprobada(!entity.get().getAprobada());
+            return this.updateOrDeleteFichaCosto(entity.get());
+        }
+        return null;
+    }
+
     private FichaCostoDto mapper(FichaCostoEntity entity) {
         return FichaCostoDto.builder()
                 .id(entity.getId())
