@@ -41,7 +41,7 @@ public class NormaConsumoFichaCostoController {
         service.deleteById(id);
     }
 
-    @DeleteMapping(value = WebResourceKeyConstants.Endpoints.DELETE + "/especial", params = "{idNormaConsumo,idFichaCosto}")
+    @DeleteMapping(value = WebResourceKeyConstants.Endpoints.DELETE + "/especial", params = {"idNormaConsumo", "idFichaCosto"})
     public void deleteEspecialById(@RequestParam("idNormaConsumo") long idNormaConsumo, @RequestParam("idFichaCosto") long idFichaCosto) {
         service.deleteNormaConsumoFichaCostoByIds(idNormaConsumo, idFichaCosto);
     }
