@@ -39,6 +39,8 @@ public class ListResolvers {
     @Autowired
     private CategoriaAgrupacionElementoGastoService categoriaAgrupacionElementoGastoService;
     @Autowired
+    private CategoriaAgrupacionIndirectaElementoGastoService categoriaAgrupacionIndirectaElementoGastoService;
+    @Autowired
     private CategoriaAgrupacionIndirectaSubelementoGastoService categoriaAgrupacionIndirectaSubelementoGastoService;
 
     @Autowired
@@ -401,6 +403,14 @@ public class ListResolvers {
                 .map(CategoriaAgrupacionElementoGastoDto::getElementoGasto)
                 .collect(Collectors.toList()) ;
         return result;
+    }
+
+    public List<ElementoGastoWithoutList> getElementoGastoByCategoriaIndirecta(long id){
+        return categoriaAgrupacionIndirectaElementoGastoService.findAll()
+                .stream()
+                .filter(p -> p.getIdCategoriaAgrupacionIndirecta()==id)
+                .map(CategoriaAgrupacionIndirectaElementoGastoDto::getElementoGasto)
+                .collect(Collectors.toList());
     }
 
     public List<SubElementoGastoWithoutList> getSubElementoGastoByCategoriaAgrupacion(long id){

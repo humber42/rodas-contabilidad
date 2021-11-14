@@ -1,5 +1,7 @@
 package cu.hash.rodascontabilidad.dto;
 
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.CategoriaAgrupacionWithoutList;
+import cu.hash.rodascontabilidad.dto.classesWhithoutCollections.ElementoGastoWithoutList;
 import lombok.*;
 
 @Data
@@ -14,7 +16,6 @@ public class CategoriaAgrupacionIndirectaElementoGastoDto {
     private Long orden;
 
     //Obejct to load when this entity is load
-    private CategoriaAgrupacionDto categoriaAgrupacionIndirecta;
-    private ElementoGastoDto elementoGasto;
-
+    private CategoriaAgrupacionWithoutList categoriaAgrupacionIndirecta;
+    private ElementoGastoWithoutList elementoGasto;
 }

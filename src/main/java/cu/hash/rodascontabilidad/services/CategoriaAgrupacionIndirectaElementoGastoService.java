@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoriaAgrupacionIndirectaElementoGastoService {
@@ -19,23 +20,26 @@ public class CategoriaAgrupacionIndirectaElementoGastoService {
     @Autowired
     private CategoriaAgrupacionService categoriaAgrupacionIndirectaService;
 
-    public List<CategoriaAgrupacionIndirectaElementoGastoEntity> findAll(){
-        return repository.findAll();
+    public List<CategoriaAgrupacionIndirectaElementoGastoDto> findAll(){
+        return repository.findAll()
+                .stream()
+                .map(this::mapper)
+                .collect(Collectors.toList());
     }
 
-    public Optional<CategoriaAgrupacionIndirectaElementoGastoEntity> findById(Long id){
-        return repository.findById(id);
+    public Optional<CategoriaAgrupacionIndirectaElementoGastoDto> findById(Long id){
+        return repository.findById(id).map(this::mapper);
     }
 
     public void deleteById(long id){
         repository.deleteById(id);
     }
-    public CategoriaAgrupacionIndirectaElementoGastoEntity addCategoriaAgrupacionIndirectaElementoGasto(CategoriaAgrupacionIndirectaElementoGastoEntity categoriaAgrupacionIndirectaElementoGastoEntity){
-        return repository.save(categoriaAgrupacionIndirectaElementoGastoEntity);
+    public CategoriaAgrupacionIndirectaElementoGastoDto addCategoriaAgrupacionIndirectaElementoGasto(CategoriaAgrupacionIndirectaElementoGastoEntity categoriaAgrupacionIndirectaElementoGastoEntity){
+        return this.mapper(repository.save(categoriaAgrupacionIndirectaElementoGastoEntity));
     }
 
     public void deleteByIdCategoriaAndIdElemento(Long idCat, Long idElem){
-        Optional<CategoriaAgrupacionIndirectaElementoGastoEntity> categoriaEntity=
+        Optional<CategoriaAgrupacionIndirectaElementoGastoEntity> categoriaEntity =
                 repository.getByIdCategoriaAgrupacionIndirectaAndIdElementoGasto(idCat, idElem);
         if(categoriaEntity.isPresent()) {
             this.deleteById(categoriaEntity.get().getId());
@@ -51,9 +55,8 @@ public class CategoriaAgrupacionIndirectaElementoGastoService {
                 .id(entity.getId())
                 .idCategoriaAgrupacionIndirecta(entity.getIdCategoriaAgrupacionIndirecta())
                 .idElementoGasto(entity.getIdElementoGasto())
-                .elementoGasto(elementoGastoService.findById(entity.getIdElementoGasto()).get())
-                .categoriaAgrupacionIndirecta(categoriaAgrupacionIndirectaService.findById(entity.getIdCategoriaAgrupacionIndirecta()).get())
+                .categoriaAgrupacionIndirecta(categoriaAgrupacionIndirectaService.findByIdToListResolver(entity.getIdCategoriaAgrupacionIndirecta()).get())
+                .elementoGasto(elementoGastoService.findByIdToListResolver(entity.getIdElementoGasto()).get())
                 .build();
-
     }
 }

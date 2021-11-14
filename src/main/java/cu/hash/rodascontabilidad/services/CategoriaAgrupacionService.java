@@ -88,7 +88,7 @@ public class CategoriaAgrupacionService {
                     .orden(entity.getOrden())
                     .mostrarFichaCosto(entity.getMostrarFichaCosto())
                     .tipoCategoria(entity.getTipoCategoria())
-                    .elementosList(listResolvers.getElementoGastoByCategoriaAgrupacion(entity.getId()))
+                    .elementosList(listResolvers.getElementoGastoByCategoriaIndirecta(entity.getId()))
                     .subelementosList(listResolvers.getSubElementoGastoByCategoriaAgrupacion(entity.getId()))
                     .build();
         }
